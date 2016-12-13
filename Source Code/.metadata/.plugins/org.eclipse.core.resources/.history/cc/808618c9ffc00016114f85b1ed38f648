@@ -10,12 +10,11 @@
 		
 		<target name="bundle-SURPG">
 			<bundleapp outputdirectory="out"
-		    	name="Steven Universe RPG"
+		    	name="Steven Universe Text-Based Roleplay"
 		        displayname="SURPG"
 		        identifier="components.SURPG"
 				icon="libs/cookiecat.icns"
 				copyright="© 2016 Jacob Batista, All Rights Reserved"
-				shortVersion="SURPG Ver. 1.0"
 		        mainclassname="com.reyzerbit.SURPG">
 		        <classpath file="SURPG.jar" />
 			</bundleapp>

@@ -7,7 +7,7 @@
 <key>CFBundleExecutable</key>
 <string>JavaAppLauncher</string>
 <key>CFBundleIconFile</key>
-<string>GenericApp.icns</string>
+<string>cookiecat.icns</string>
 <key>CFBundleIdentifier</key>
 <string>components.SURPG</string>
 <key>CFBundleDisplayName</key>
@@ -15,17 +15,17 @@
 <key>CFBundleInfoDictionaryVersion</key>
 <string>6.0</string>
 <key>CFBundleName</key>
-<string>SURPG</string>
+<string>Steven Universe RPG</string>
 <key>CFBundlePackageType</key>
 <string>APPL</string>
 <key>CFBundleShortVersionString</key>
-<string>1.0</string>
+<string>SURPG Ver. 1.0</string>
 <key>CFBundleSignature</key>
 <string>????</string>
 <key>CFBundleVersion</key>
 <string>1</string>
 <key>NSHumanReadableCopyright</key>
-<string></string>
+<string>© 2016 Jacob Batista, All Rights Reserved</string>
 <key>JVMMainClassName</key>
 <string>com.reyzerbit.SURPG</string>
 <key>JVMOptions</key>

@@ -69,9 +69,9 @@ public class PickingCharacter {
 		if(pChoices1.contains(gemSpot.toUpperCase())){
 			
 			Feats.gemSpot = gemSpot;
-			StringsClass.readString("s3");
+			Feats.addText(StringsClass.readString("s3"));
 			Feats.addText(gemSpot);
-			StringsClass.readString("s3.1");
+			Feats.addText(StringsClass.readString("s3.1"));
 			Feats.location = 3;
 				
 		}

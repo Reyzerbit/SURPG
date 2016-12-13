@@ -19,6 +19,10 @@ public class Feats {
 	
 	public static long location = 0;
 	
+	//If Save is a Recent Load or not.
+	
+	public static int recent = 0;
+	
 	//Save File Location
 	
 	public static File saveFile = null;

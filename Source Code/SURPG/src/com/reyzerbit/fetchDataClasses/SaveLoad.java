@@ -29,6 +29,7 @@ public class SaveLoad {
 		obj.put("Location", Feats.location);
 		obj.put("Gem Type", Feats.gemType);
 		obj.put("Gem Placement", Feats.gemSpot);
+		obj.put("Recent", Feats.recent);
 		
         String filePath = new String(Feats.saveFile.toString());
         

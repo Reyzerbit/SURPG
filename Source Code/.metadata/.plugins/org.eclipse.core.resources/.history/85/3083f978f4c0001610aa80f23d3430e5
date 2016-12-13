@@ -1,0 +1,11 @@
+package com.reyzerbit.fetchDataClasses;
+
+public class SetNewData {
+
+	public static void set(){
+		
+		
+		
+	}
+	
+}

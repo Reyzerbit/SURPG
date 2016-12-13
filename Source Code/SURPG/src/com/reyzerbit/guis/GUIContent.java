@@ -9,8 +9,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URISyntaxException;
 
 import javax.imageio.ImageIO;
@@ -45,6 +45,10 @@ public class GUIContent{
 	public static JTextField inputWindow = new JTextField();
 	static JScrollPane scroll = new JScrollPane(outputWindow);
 	
+	//Input Streams
+	static InputStream in = null;
+	static InputStream in2 = null;
+	
 	//Images
 	static BufferedImage background = null;
 	static BufferedImage watermark = null;
@@ -58,8 +62,11 @@ public class GUIContent{
 
 		//Background
 		
-		background = ImageIO.read(new File(GUIContent.class.getClassLoader().getResource("com/reyzerbit/assets/background.jpg").toURI()));
-		watermark = ImageIO.read(new File(GUIContent.class.getClassLoader().getResource("com/reyzerbit/assets/watermark.png").toURI()));
+		in = GUIContent.class.getClassLoader().getResourceAsStream("com/reyzerbit/assets/background.jpg");
+		in2 = GUIContent.class.getClassLoader().getResourceAsStream("com/reyzerbit/assets/watermark.png");
+		
+		background = ImageIO.read(in);
+		watermark = ImageIO.read(in2);
 		
 		@SuppressWarnings("serial")
 		JPanel back = new JPanel() {

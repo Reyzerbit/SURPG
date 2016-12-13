@@ -8,10 +8,11 @@
 	<section name="FatJarPackageWizard">
 		<item value="/Users/diegobatista/Git Repositories/SURPG/Source Code" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
 		<item value="SURPG - SURPG" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
-		<item value="/Users/diegobatista/Desktop/Test.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
+		<item value="SURPG/build/SURPG.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
 		<item value="false" key="FatJarPackageWizardPage.ANTSCRIPT_SAVE"/>
 		<item value="1" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="SURPG/build/SURPG.jar"/>
 			<item value="/Users/diegobatista/Desktop/Test.jar"/>
 			<item value="/Users/diegobatista/Desktop/DoesItWork.jar"/>
 		</list>

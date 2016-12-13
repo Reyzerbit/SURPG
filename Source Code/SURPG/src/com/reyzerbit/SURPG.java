@@ -1,6 +1,7 @@
 package com.reyzerbit;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -37,7 +38,11 @@ public class SURPG {
 		
 		//Initialize GUI
 		
-		GUIContent.init();
+		try {
+			GUIContent.init();
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
 		MenuBar.initMenuBar();
 		MenuBar.saveGame.disable();
 		

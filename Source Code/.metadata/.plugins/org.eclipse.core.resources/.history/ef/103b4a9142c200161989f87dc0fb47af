@@ -24,7 +24,7 @@ public class StringsClass {
 
 		URL download = null;
 		try {
-			download = new URL("https://raw.githubusercontent.com/jacobaccio/SURPG/Version-1.0/Resources/StringsFile.json");
+			download = new URL("https://github.com/jacobaccio/SURPG/blob/Version-1.0/Resources/StringsFile.json");
 		} catch (MalformedURLException e2) {
 			e2.printStackTrace();
 		}

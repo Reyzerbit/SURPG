@@ -8,6 +8,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import com.reyzerbit.fetchDataClasses.RecentsLoad;
 import com.reyzerbit.guis.GUIContent;
+import com.reyzerbit.storyline.PickingCharacter;
 
 public class SURPG {
 	

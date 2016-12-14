@@ -4,6 +4,8 @@ import java.io.File;
 
 import com.reyzerbit.fetchDataClasses.StringsClass;
 import com.reyzerbit.guis.GUIContent;
+import com.reyzerbit.storyline.PearlBegin;
+import com.reyzerbit.storyline.PickingCharacter;
 
 public class Feats {
 	
@@ -58,6 +60,12 @@ public class Feats {
 			PickingCharacter.run4(GUIContent.inputWindow.getText());
 			GUIContent.inputWindow.setText("");
 		}
+		//Pearl Line is 5
+		else if(locator == 51 || locator == 61 || locator == 71){
+			PearlBegin.run0();
+			GUIContent.inputWindow.setText("");
+		}
+		//Ruby Line is 6
 		
 	}
 	

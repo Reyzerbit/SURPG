@@ -3,4 +3,6 @@
 <fullyQualifiedTypeName name="java.io.InputStream"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="com.reyzerbit.fetchDataClasses.SetNewData"/>
+<fullyQualifiedTypeName name="com.reyzerbit.storyline.PearlBegin"/>
+<fullyQualifiedTypeName name="com.reyzerbit.Feats"/>
 </qualifiedTypeNameHistroy>

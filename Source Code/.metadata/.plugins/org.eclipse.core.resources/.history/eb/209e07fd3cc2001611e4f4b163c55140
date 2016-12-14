@@ -1,0 +1,13 @@
+package com.reyzerbit.storyline;
+
+import com.reyzerbit.Feats;
+
+public class PearlBegin {
+	
+	public static void run0(){
+		
+		Feats.location = 5.2
+		
+	}
+
+}

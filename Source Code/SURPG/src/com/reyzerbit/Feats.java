@@ -13,6 +13,9 @@ public class Feats {
 	public static String gemSpot = new String("undefined");
 	public static String gemType = new String("undefined");
 	public static int health = 10;
+	public static int strength = 0;
+	public static int agility = 0;
+	public static int intelligence = 0;
 	
 	//Separator for Different OS's
 	public static String separate = new String(System.getProperty("file.separator"));

@@ -32,7 +32,10 @@ public class GUIContent{
 	
 	//Labels
 	static JLabel inputLabel = new JLabel("");
-	static JLabel healthPoints = new JLabel("  HP: " + Feats.health);
+	public static JLabel healthPoints = new JLabel("  HP: " + Feats.health);
+	public static JLabel strengthPoints = new JLabel("  Str: " + Feats.strength);
+	public static JLabel intelPoints = new JLabel("  Int: " + Feats.intelligence);
+	public static JLabel agilPoints = new JLabel("  Agl: " + Feats.agility);
 	
 	//Panels
 	static JPanel stats = new JPanel();
@@ -138,8 +141,23 @@ public class GUIContent{
 		healthPoints.setOpaque(true);
 		healthPoints.setBackground(new Color(255, 74, 90));
 		
+		strengthPoints.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+		strengthPoints.setOpaque(true);
+		strengthPoints.setBackground(Color.ORANGE);
+		
+		intelPoints.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+		intelPoints.setOpaque(true);
+		intelPoints.setBackground(Color.BLUE);
+		
+		agilPoints.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+		agilPoints.setOpaque(true);
+		agilPoints.setBackground(Color.GREEN);
+		
 		//Place JPanel Components
 		addComponentFrame(stats, healthPoints, 20, 20, 65, 30);
+		addComponentFrame(stats, strengthPoints, 105, 20, 65, 30);
+		addComponentFrame(stats, intelPoints, 190, 20, 65, 30);
+		addComponentFrame(stats, agilPoints, 275, 20, 65, 30);
 		
 		//Place Components
 		addComponent(gui, scroll, 20, 20, 280, 440);
@@ -158,6 +176,39 @@ public class GUIContent{
             @Override
             public void mouseEntered(MouseEvent event) {
                 hover.setText("Your health starts at ten, and will slowly raise as you level up.");
+            }
+
+            @Override
+            public void mouseExited(MouseEvent event) {
+                hover.setText("Hover over a stat for details.");
+            }
+        });
+		strengthPoints.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent event) {
+                hover.setText("Your strength starts at zero, and will grow as you complete events and level up.");
+            }
+
+            @Override
+            public void mouseExited(MouseEvent event) {
+                hover.setText("Hover over a stat for details.");
+            }
+        });
+		intelPoints.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent event) {
+                hover.setText("Your intelligence starts at zero, and will grow as you complete events and level up.");
+            }
+
+            @Override
+            public void mouseExited(MouseEvent event) {
+                hover.setText("Hover over a stat for details.");
+            }
+        });
+		agilPoints.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent event) {
+                hover.setText("Your agility starts at zero, and will grow as you complete events and level up.");
             }
 
             @Override

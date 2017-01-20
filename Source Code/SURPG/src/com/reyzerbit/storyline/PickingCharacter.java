@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 import com.reyzerbit.Feats;
 import com.reyzerbit.fetchDataClasses.StringsClass;
-import com.reyzerbit.guis.GUIContent;
 
 public class PickingCharacter {
 	
@@ -134,7 +133,7 @@ public class PickingCharacter {
 			Feats.addText(StringsClass.readString("s5.1"));
 			Feats.location = 51;
 			++Feats.agility;
-			GUIContent.agilPoints.repaint();
+			Feats.resetStat();
 			
 		}
 		else if(pChoices3_1.contains(confrontation.toUpperCase())){
@@ -142,7 +141,7 @@ public class PickingCharacter {
 			Feats.addText(StringsClass.readString("s6"));
 			Feats.location = 61;
 			++Feats.strength;
-			GUIContent.strengthPoints.setText("  Str: " + String.valueOf(Feats.strength));
+			Feats.resetStat();
 				
 		}
 		else if(pChoices3_2.contains(confrontation.toUpperCase())){
@@ -150,7 +149,7 @@ public class PickingCharacter {
 			Feats.addText(StringsClass.readString("s7"));
 			Feats.location = 71;
 			++Feats.intelligence;
-			GUIContent.intelPoints.repaint();
+			Feats.resetStat();
 				
 		}
 		else if(helpHint.contains(confrontation.toUpperCase())){

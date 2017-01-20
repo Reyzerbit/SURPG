@@ -175,7 +175,7 @@ public class GUIContent{
 		healthPoints.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent event) {
-                hover.setText("Your health starts at ten, and will slowly raise as you level up.");
+                hover.setText("Your health starts at ten, and will slowly raise as you level up. It is currently at "+Feats.health+".");
             }
 
             @Override
@@ -186,7 +186,7 @@ public class GUIContent{
 		strengthPoints.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent event) {
-                hover.setText("Your strength starts at zero, and will grow as you complete events and level up.");
+                hover.setText("Your strength starts at zero, and will grow as you complete events and level up. It is currently at "+Feats.strength+".");
             }
 
             @Override
@@ -197,7 +197,7 @@ public class GUIContent{
 		intelPoints.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent event) {
-                hover.setText("Your intelligence starts at zero, and will grow as you complete events and level up.");
+                hover.setText("Your intelligence starts at zero, and will grow as you complete events and level up. It is currently at "+Feats.intelligence+".");
             }
 
             @Override
@@ -208,7 +208,7 @@ public class GUIContent{
 		agilPoints.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent event) {
-                hover.setText("Your agility starts at zero, and will grow as you complete events and level up.");
+                hover.setText("Your agility starts at zero, and will grow as you complete events and level up. It is currently at "+Feats.agility+".");
             }
 
             @Override

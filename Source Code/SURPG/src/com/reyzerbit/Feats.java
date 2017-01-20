@@ -37,6 +37,7 @@ public class Feats {
 	public static void addText(String text){
 		
 		GUIContent.outputWindow.append(text);
+		System.out.println("Text added.");
 		
 	}
 	
@@ -70,6 +71,8 @@ public class Feats {
 		}
 		//Ruby Line is 6
 		
+		System.out.println("Next path run.");
+		
 	}
 	
 	//For Load Files
@@ -101,6 +104,17 @@ public class Feats {
 			
 		}
 
+	}
+	
+	public static void resetStat(){
+		
+		GUIContent.agilPoints.setText("  Agl: " + agility);
+		GUIContent.strengthPoints.setText("  Str: " + strength);
+		GUIContent.intelPoints.setText("  Int: " + intelligence);
+		GUIContent.healthPoints.setText("  HP: " + health);
+		
+		System.out.println("Stats reloaded.");
+		
 	}
 	
 }

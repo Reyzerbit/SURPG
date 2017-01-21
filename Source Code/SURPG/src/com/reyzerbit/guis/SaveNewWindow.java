@@ -9,6 +9,7 @@ import java.io.IOException;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import com.reyzerbit.Feats;
@@ -16,6 +17,10 @@ import com.reyzerbit.MenuBar;
 import com.reyzerbit.fetchDataClasses.SaveLoad;
 
 public class SaveNewWindow {
+	
+	static String newSaveFile;
+	static File newFile;
+	static JFrame newSaveFrame;
 
 	public static void saveWindow(){
 		
@@ -25,7 +30,8 @@ public class SaveNewWindow {
 		
 		JButton enter = new JButton("Enter");
 		
-		JFrame newSaveFrame = new JFrame();
+		newSaveFrame = new JFrame();
+		
 		newSaveFrame.setLayout(null);
 		newSaveFrame.setVisible(true);
 		newSaveFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -58,31 +64,67 @@ public class SaveNewWindow {
 				else{
 					
 					//New Save Prep
-					String newSaveFile = nameNewSave.getText();
-					File newFile = new File(System.getProperty("user.home") + Feats.separate + "Documents" + Feats.separate + "SURPG" + Feats.separate + newSaveFile + ".json");
-					newFile.getParentFile().mkdirs();
+					newSaveFile = nameNewSave.getText();
+					newFile = new File(System.getProperty("user.home") + Feats.separate + "Documents" + Feats.separate + "SURPG" + Feats.separate + newSaveFile + ".json");
 					
-					//Save New File
-					try {
-						newFile.createNewFile();
-					} catch (IOException e1) {
-						e1.printStackTrace();
+					//Check for Overwrite
+					if(newFile.exists()){
+						
+						int overwrite = JOptionPane.showConfirmDialog(null, "This file already exists. Overwrite?", "ERROR", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
+						System.out.print(overwrite);
+						if(overwrite==0){
+							
+							saveAction();
+							
+						}
+						else if(overwrite==1){
+							
+							nameNewSave.setText("");
+							
+						}
+						else if(overwrite==2){
+							
+							newSaveFrame.dispose();
+							
+						}else{
+							
+							System.out.println("Something went wrong...");
+							
+						}
+						
+					}else{
+						
+						saveAction();
+						
 					}
-					
-					Feats.saveFile = newFile;
-					SaveLoad.saveFile();
-					
-					System.out.println("New files created and saved!");
-					Feats.addText("New files created and saved!\n\n");
-					
-					newSaveFrame.dispose();
-					MenuBar.saveGame.enable();
 					
 				}
 				
 			}
 			
 		});
+		
+	}
+	
+	private static void saveAction(){
+		
+		newFile.getParentFile().mkdirs();
+		
+		//Save New File
+		try {
+			newFile.createNewFile();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+	
+		Feats.saveFile = newFile;
+		SaveLoad.saveFile();
+	
+		System.out.println("New files created and saved!");
+		Feats.addText("New files created and saved!\n\n");
+	
+		newSaveFrame.dispose();
+		MenuBar.saveGame.enable();
 		
 	}
 	

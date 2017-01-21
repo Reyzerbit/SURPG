@@ -131,7 +131,7 @@ public class PickingCharacter {
 			Feats.addText(StringsClass.readString("s5"));
 			Feats.addText(Feats.gemType);
 			Feats.addText(StringsClass.readString("s5.1"));
-			Feats.location = 51;
+			Feats.location = 5;
 			++Feats.agility;
 			Feats.resetStat();
 			
@@ -139,7 +139,7 @@ public class PickingCharacter {
 		else if(pChoices3_1.contains(confrontation.toUpperCase())){
 				
 			Feats.addText(StringsClass.readString("s6"));
-			Feats.location = 61;
+			Feats.location = 5;
 			++Feats.strength;
 			Feats.resetStat();
 				
@@ -147,7 +147,7 @@ public class PickingCharacter {
 		else if(pChoices3_2.contains(confrontation.toUpperCase())){
 				
 			Feats.addText(StringsClass.readString("s7"));
-			Feats.location = 71;
+			Feats.location = 5;
 			++Feats.intelligence;
 			Feats.resetStat();
 				

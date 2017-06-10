@@ -5,6 +5,7 @@ import java.io.File;
 import com.reyzerbit.fetchDataClasses.StringsClass;
 import com.reyzerbit.guis.GUIContent;
 import com.reyzerbit.storyline.PickingCharacter;
+import com.reyzerbit.storyline.Test;
 
 public class Feats {
 	
@@ -18,6 +19,10 @@ public class Feats {
 	
 	//Separator for Different OS's
 	public static String separate = new String(System.getProperty("file.separator"));
+	
+	//If recents file was already made
+	
+	public static int recMade = 0;
 	
 	//Location in Story
 	
@@ -47,26 +52,45 @@ public class Feats {
 		
 		if(locator == 0){
 			PickingCharacter.run0();
-			GUIContent.inputWindow.setText("");
+			clearInput();
 		}
 		else if(locator == 1){
-			PickingCharacter.run1(GUIContent.inputWindow.getText());
-			GUIContent.inputWindow.setText("");
+			PickingCharacter.run1(getInput());
+			clearInput();
 		}
 		else if(locator == 2){
-			PickingCharacter.run2(GUIContent.inputWindow.getText());
-			GUIContent.inputWindow.setText("");
+			PickingCharacter.run2(getInput());
+			clearInput();
 		}
 		else if(locator == 3){
-			PickingCharacter.run3(GUIContent.inputWindow.getText());
-			GUIContent.inputWindow.setText("");
+			PickingCharacter.run3(getInput());
+			clearInput();
 		}
 		else if(locator == 4){
-			PickingCharacter.run4(GUIContent.inputWindow.getText());
-			GUIContent.inputWindow.setText("");
+			PickingCharacter.run4(getInput());
+			clearInput();
+		}
+		else if(locator == 5){
+			Test.run0();
+			clearInput();
 		}
 		
 		System.out.println("Next path run.");
+		
+	}
+	
+	//Clear input window.
+	
+	public static void clearInput(){
+		
+		GUIContent.inputWindow.setText("");
+		
+	}
+	
+	//Get input window text
+	public static String getInput(){
+		
+		return GUIContent.inputWindow.getText();
 		
 	}
 	

@@ -16,12 +16,16 @@ import com.reyzerbit.Feats;
 
 public class StringsClass {
 
+	
+	//Read String from Strings.json
 	public static String readString(String stringTitle){
 		
 		String stringComplete = null;
 		
+		//File location
 		File stringsFile = new File(System.getProperty("user.home") + Feats.separate + "Documents" + Feats.separate + "SURPG" + Feats.separate + "RequiredFiles" + Feats.separate + "StringsFile.json");
 
+		//This declare the download URL for later use.
 		URL download = null;
 		try {
 			download = new URL("https://raw.githubusercontent.com/jacobaccio/SURPG/Version-1.0/Resources/StringsFile.json");
@@ -29,6 +33,7 @@ public class StringsClass {
 			e2.printStackTrace();
 		}
 		
+		//Check to see if file exists. If it does, continue. If it doesn't attempt download.
 		if(stringsFile.exists()){
 			
 			System.out.println("Strings JSON Found, Reading String");
@@ -36,18 +41,23 @@ public class StringsClass {
 		}
 		else{
 			
+			//File downloading
 			System.out.println("Downloading File");
 			
 			try {
 				FileUtils.copyURLToFile(download, stringsFile, 30000, 30000);
 			} catch (IOException e) {
 				e.printStackTrace();
+				System.out.println("Couldn't download Strings.json");
 			}
 			
 		}
+		
+		//Create JSON Parser and object to read JSON file
 		JSONParser parser = new JSONParser();
 		JSONObject jsonObject = null;
 		
+		//Read specific string. Uses the item "stringTitle" from method to find required string location.
         try {
         	
 			Object objLoad = parser.parse(new FileReader(stringsFile));

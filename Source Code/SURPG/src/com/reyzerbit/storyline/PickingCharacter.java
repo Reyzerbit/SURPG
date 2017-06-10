@@ -2,23 +2,21 @@ package com.reyzerbit.storyline;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
+
+import javax.swing.JOptionPane;
 
 import com.reyzerbit.Feats;
 import com.reyzerbit.fetchDataClasses.StringsClass;
 
 public class PickingCharacter {
 	
-	//Scanner
-	static Scanner input = new Scanner(System.in);
-	
 	//String Arrays as Lists for Possible Choices
-	static List<String> helpHint = Arrays.asList("HELP", "HINT");
-	static List<String> pChoices = Arrays.asList("FORM", "GENERATE PHYSICAL FORM", "GENERATE FORM", "GENERATE A FORM", "GENERATE A PHYSICAL FORM");
+	static List<String> helpHint = Arrays.asList("HELP", "HINT", "HELP ME");
+	static List<String> pChoices = Arrays.asList("FORM", "GENERATE PHYSICAL FORM", "GENERATE FORM", "GENERATE A FORM", "GENERATE A PHYSICAL FORM", "CREATE A PHYSICAL FORM", "PHYSICAL FORM");
 	static List<String> pChoices0_1 = Arrays.asList("BREAK FREE", "FREE MYSELF");
 	static List<String> pChoices1 = Arrays.asList("CHEST", "HAND", "HEAD", "FOREHEAD", "STOMACH", "EYE", "NOSE", "BACK");
 	static List<String> pChoices2 = Arrays.asList("RUBY", "SAPPHIRE", "AMETHYST", "ROSE QUARTZ", "PERIDOT", "LAPIS LAZULI", "JASPER", "PEARL");
-	static List<String> pChoices2_0 = Arrays.asList("DIAMOND");
+	static List<String> pChoices2_0 = Arrays.asList("DIAMOND", "YELLOW DIAMOND", "PINK DIAMOND", "BLUE DIAMOND", "WHITE DIAMOND");
 	static List<String> pChoices3_0 = Arrays.asList("RUN", "ESCAPE", "RUN AWAY", "LEAVE");
 	static List<String> pChoices3_1 = Arrays.asList("ATTACK", "FIGHT", "ATTACK HER", "FIGHT HER");
 	static List<String> pChoices3_2 = Arrays.asList("TALK", "REPLY", "TALK TO HER", "SPEAK", "TALK BACK");
@@ -28,12 +26,14 @@ public class PickingCharacter {
 
 	//Each Run (Run0, Run1, etc.) runs part of the story line.
 	
+	//Begin game.
 	public static void run0(){
 		Feats.addText(StringsClass.readString("s1"));
 		Feats.location = 1;
 		
 	}
 		
+	//Decide to form body.
 	public static void run1(String formBody){
 		
 		if(pChoices.contains(formBody.toUpperCase())){
@@ -64,7 +64,8 @@ public class PickingCharacter {
 		}
 		
 	}
-		
+	
+	//Pick gem location.
 	public static void run2(String gemSpot){
 		
 		if(pChoices1.contains(gemSpot.toUpperCase())){
@@ -93,7 +94,8 @@ public class PickingCharacter {
 		}
 		
 	}
-		
+	
+	//Gem type selection.
 	public static void run3(String gemType){
 		
 		if(pChoices2.contains(gemType.toUpperCase())){
@@ -106,7 +108,7 @@ public class PickingCharacter {
 		}
 		else if(helpHint.contains(gemType.toUpperCase())){
 			
-			Feats.addText("Pick a type of valuable mineral to play as, for instance a ruby or a sapphire.\n\n");
+			Feats.addText("Pick a type of valuable stone to play as, for instance a ruby or a sapphire.\n\n");
 			
 		}
 		else if(pChoices2_0.contains(gemType.toUpperCase())){
@@ -125,7 +127,9 @@ public class PickingCharacter {
 		
 	}
 		
+	//Confrontation with Peridot.
 	public static void run4(String confrontation){
+		//Attempt to run.
 		if(pChoices3_0.contains(confrontation.toUpperCase())){
 			
 			Feats.addText(StringsClass.readString("s5"));
@@ -133,22 +137,27 @@ public class PickingCharacter {
 			Feats.addText(StringsClass.readString("s5.1"));
 			Feats.location = 5;
 			++Feats.agility;
+			JOptionPane.showMessageDialog(null, "Your agility increased by one point.");
 			Feats.resetStat();
 			
 		}
+		//Attempt to fight.
 		else if(pChoices3_1.contains(confrontation.toUpperCase())){
 				
 			Feats.addText(StringsClass.readString("s6"));
 			Feats.location = 5;
 			++Feats.strength;
+			JOptionPane.showMessageDialog(null, "Your strength increased by one point.");
 			Feats.resetStat();
 				
 		}
+		//Attempt to reason.
 		else if(pChoices3_2.contains(confrontation.toUpperCase())){
 				
 			Feats.addText(StringsClass.readString("s7"));
 			Feats.location = 5;
 			++Feats.intelligence;
+			JOptionPane.showMessageDialog(null, "Your intelligence increased by one point.");
 			Feats.resetStat();
 				
 		}
@@ -164,7 +173,7 @@ public class PickingCharacter {
 		}
 		else{
 				
-			Feats.addText("I don't think that would work. What do you really do?\n\n");
+			Feats.addText("I don't think that would work. What do you do instead?\n\n");
 				
 		}
 		

@@ -27,11 +27,14 @@ public class SURPG {
 			e.printStackTrace();
 		}
 		MenuBar.initMenuBar();
+		
+		//Disable save game feature and file is loaded.
 		MenuBar.saveGame.disable();
 		
 		//Begin Game
 		PickingCharacter.run0();
 		
+		//Load Recents
 		RecentsLoad.loadRecents();
 
 	}

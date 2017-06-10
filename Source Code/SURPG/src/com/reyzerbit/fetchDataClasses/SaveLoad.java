@@ -22,8 +22,10 @@ public class SaveLoad {
 	
 	public static void saveFile(){
 			
+		//Attempt save
 		System.out.println("Saving...");
 		
+		//Put items into JSON Object.
 		JSONObject obj = new JSONObject();
 		
 		obj.put("Location", Feats.location);
@@ -31,6 +33,7 @@ public class SaveLoad {
 		obj.put("Gem Placement", Feats.gemSpot);
 		obj.put("Recent", Feats.recent);
 		
+		//Get save file.
         String filePath = new String(Feats.saveFile.toString());
         
         //Save Data
@@ -47,6 +50,7 @@ public class SaveLoad {
 	
 	public static void loadRecent(File file){
 		
+		//Get save file, "file" variable is from method, predeclared upon selecting option in menubar.
 		Feats.saveFile = file;
 		
         System.out.println("Loading: " + file.getName());
@@ -71,12 +75,15 @@ public class SaveLoad {
 			e.printStackTrace();
 		}
         
+        //Enable save game menu item.
         MenuBar.saveGame.enable();
 
+        //Reset output window.
 		GUIContent.outputWindow.setText("");
         
         System.out.println("Loading to Location: " + Feats.location);
         
+        //Begin story at Feats.location
         Feats.nameLocation(Feats.location);
 		
 	}
@@ -90,6 +97,7 @@ public class SaveLoad {
 		fc.setFileFilter(filter);
 		int returnVal = fc.showOpenDialog(GUIContent.gui);
 		
+		//If statement, if they choose a valid file.
 		if(returnVal == JFileChooser.APPROVE_OPTION){
 			
             Feats.saveFile = fc.getSelectedFile();
@@ -100,6 +108,7 @@ public class SaveLoad {
             long recentYN = 0;
             try {
             	
+            	//JSON Load and parse save file.
 				Object objLoad = parser.parse(new FileReader(Feats.saveFile));
 	            JSONObject jsonObject = (JSONObject) objLoad; 
 	            
@@ -110,6 +119,7 @@ public class SaveLoad {
 	    		
 	    		recentYN = (long) jsonObject.get("Recent");
 	    		
+	    		//Check if it's on the recents file.
 	    		if(recentYN == 0){
 	    			String filePath = new String(Feats.saveFile.toString());
 	    			jsonObject.put("Recent", 1);
@@ -129,14 +139,18 @@ public class SaveLoad {
 				e.printStackTrace();
 			}
             
+            //Enable save game.
             MenuBar.saveGame.enable();
 
+            //Clear output window.
     		GUIContent.outputWindow.setText("");
             
             System.out.println("Loading to Location: " + Feats.location);
             
+            //Start story at Feats.location
             Feats.nameLocation(Feats.location);
             
+            //Attempt to add to recents.
             RecentsLoad.addRecent(Feats.saveFile, recentYN);
             
         }
@@ -148,6 +162,7 @@ public class SaveLoad {
 		
 	}
 	
+	//Method to begin "save new game" process.
 	public static void saveNewGame(){
 		
 		SaveNewWindow.saveWindow();

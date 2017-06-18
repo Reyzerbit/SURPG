@@ -1,0 +1,20 @@
+package com.reyzerbit.guis;
+
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+
+import javax.swing.JPanel;
+
+public class CharacterDraw extends JPanel{
+	
+	static BufferedImage characterPic = null;
+	
+	//Character Shape
+	in2 = GUIContent.class.getClassLoader().getResourceAsStream("com/reyzerbit/assets/CharacterPic.png");
+	
+	public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(characterPic, 0, 0, null);
+    }
+
+}

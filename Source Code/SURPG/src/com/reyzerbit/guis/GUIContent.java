@@ -16,6 +16,7 @@ import java.net.URISyntaxException;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -41,7 +42,7 @@ public class GUIContent{
 	static JPanel stats = new JPanel();
 	
 	//Hover TextArea
-	static JTextArea hover = new JTextArea("Hover over a stat for details.");
+	static JTextArea hover = new JTextArea("Hover over a feature in the box above for a description about it's purpose.");
 	
 	//Text IO
 	public static JTextArea outputWindow = new JTextArea();
@@ -54,25 +55,33 @@ public class GUIContent{
 	
 	//Images
 	static BufferedImage background = null;
-	static BufferedImage watermark = null;
+	static BufferedImage characterPic = null;
 	
-	//Enter Button
+	//Buttons
 	static JButton enter = new JButton("Enter");
+	static JButton statsButton = new JButton("Stats");
+	static JButton characterButton = new JButton("Character");
+	
+	static JPanel characterObject = new JPanel();
 	
 	public static void init() throws IOException, URISyntaxException{
 		
 		//Initiate Game GUI
 
 		//Background
-		
 		in = GUIContent.class.getClassLoader().getResourceAsStream("com/reyzerbit/assets/background.jpg");
-		in2 = GUIContent.class.getClassLoader().getResourceAsStream("com/reyzerbit/assets/watermark.png");
+		
+		//Character Shape
+		in2 = GUIContent.class.getClassLoader().getResourceAsStream("com/reyzerbit/assets/CharacterPic.png");
 		
 		background = ImageIO.read(in);
-		watermark = ImageIO.read(in2);
+		characterPic = ImageIO.read(in2);
 		
+		//Remove comments once Lauryn draws the picture.
+		
+		/*
 		@SuppressWarnings("serial")
-		JPanel back = new JPanel() {
+		JPanel backPic = new JPanel() {
 	        @Override
 	        protected void paintComponent(Graphics g) {
 	            super.paintComponent(g);
@@ -80,19 +89,31 @@ public class GUIContent{
 	        }
 	    };
 	    
-	    //Watermark
-	    
-	    @SuppressWarnings("serial")
-		JPanel wmJPanel = new JPanel() {
+	    */
+		
+		in2 = GUIContent.class.getClassLoader().getResourceAsStream("com/reyzerbit/assets/CharacterPic.png");
+		try {
+			characterPic = ImageIO.read(in2);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		@SuppressWarnings("serial")
+		JPanel characterPanel = new JPanel() {
 	        @Override
 	        protected void paintComponent(Graphics g) {
 	            super.paintComponent(g);
-	            g.drawImage(watermark, 0, 0, null);
+	            g.drawImage(characterPic, 0, 0, null);
+	            super.repaint();
 	        }
 	    };
 		
 		//GUI Constraints
-	    gui.setContentPane(back);
+		
+		//Also remove comments once picture is drawn.
+		/*
+	    gui.setContentPane(backPic);
+	    */
+		
 		gui.getContentPane().setLayout(null);
 		gui.setVisible(true);
 		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -125,12 +146,27 @@ public class GUIContent{
 		enter.setOpaque(true);
 		enter.setBackground(Color.LIGHT_GRAY);
 		
-		//JPanel Constraints
+		//Stats Button Constraints
+		statsButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
+		statsButton.setOpaque(true);
+		Color characterColor = new Color(239, 156, 21);
+		statsButton.setBackground(characterColor);
+		
+		//Stats Button Constraints
+		characterButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
+		characterButton.setOpaque(true);
+		Color statsColor = new Color(34, 229, 196);
+		characterButton.setBackground(statsColor);
+		
+		//Character Pic Constraints
+		characterPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
+		characterPanel.setOpaque(true);
+		characterPanel.setVisible(false);
+		
+		//Stats Panel Constraints
 		stats.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3, true));
 		stats.setLayout(null);
 		stats.setBackground(Color.WHITE);
-		
-		wmJPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3, true));
 		
 		//Hover Constraints
 		hover.setMargin(new Insets(5,5,5,5));
@@ -154,70 +190,78 @@ public class GUIContent{
 		agilPoints.setBackground(Color.GREEN);
 		
 		//Place JPanel Components
-		addComponentFrame(stats, healthPoints, 20, 20, 65, 30);
-		addComponentFrame(stats, strengthPoints, 105, 20, 65, 30);
-		addComponentFrame(stats, intelPoints, 190, 20, 65, 30);
-		addComponentFrame(stats, agilPoints, 275, 20, 65, 30);
+		addComponentFrame(stats, healthPoints, 30, 20, 65, 30);
+		addComponentFrame(stats, strengthPoints, 125, 20, 65, 30);
+		addComponentFrame(stats, intelPoints, 220, 20, 65, 30);
+		addComponentFrame(stats, agilPoints, 30, 70, 65, 30);
+		addComponentFrame(stats, characterPanel, 30, 20, 80, 150);
 		
 		//Place Components
 		addComponent(gui, scroll, 20, 20, 280, 440);
-		addComponent(gui, inputWindow, 390, 35, 200, 20);
-		addComponent(gui, enter, 610, 35, 100, 20);
-		addComponent(gui, stats, 340, 80, 440, 250);
+		addComponent(gui, inputWindow, 340, 35, 200, 20);
+		addComponent(gui, enter, 560, 35, 100, 20);
+		addComponent(gui, stats, 340, 80, 320, 250);
 		addComponent(gui, hover, 340, 380, 320, 80);
-		addComponent(gui, wmJPanel, 700, 380, 80, 80);
+		addComponent(gui, statsButton, 680, 80, 100, 30);
+		addComponent(gui, characterButton, 680, 130, 100, 30);
 		
 		
 		//Request Focus for Input Window
 		inputWindow.requestFocusInWindow();
 		
 		//Listener for Hovers
-		healthPoints.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent event) {
-                hover.setText("Your health starts at ten, and will slowly raise as you level up. It is currently at "+Feats.health+".");
-            }
-
-            @Override
-            public void mouseExited(MouseEvent event) {
-                hover.setText("Hover over a stat for details.");
-            }
-        });
-		strengthPoints.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent event) {
-                hover.setText("Your strength starts at zero, and will grow as you complete events and level up. It is currently at "+Feats.strength+".");
-            }
-
-            @Override
-            public void mouseExited(MouseEvent event) {
-                hover.setText("Hover over a stat for details.");
-            }
-        });
-		intelPoints.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent event) {
-                hover.setText("Your intelligence starts at zero, and will grow as you complete events and level up. It is currently at "+Feats.intelligence+".");
-            }
-
-            @Override
-            public void mouseExited(MouseEvent event) {
-                hover.setText("Hover over a stat for details.");
-            }
-        });
-		agilPoints.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent event) {
-                hover.setText("Your agility starts at zero, and will grow as you complete events and level up. It is currently at "+Feats.agility+".");
-            }
-
-            @Override
-            public void mouseExited(MouseEvent event) {
-                hover.setText("Hover over a stat for details.");
-            }
-        });
+				
+		//Health Points Hover Listener
+		addHoverListener(healthPoints, "Your health starts at ten, and will slowly raise as you level up.");
 		
-		//Add Listener for Button
+		//Strength Points Hover Listener
+		addHoverListener(strengthPoints, "Your strength starts at zero, and will grow as you complete events and level up.");
+		
+		//Intelligence Points Hover Listener
+		addHoverListener(intelPoints, "Your intelligence starts at zero, and will grow as you complete events and level up.");
+		
+		//Agility Points Hover Listener
+		addHoverListener(agilPoints, "Your agility starts at zero, and will grow as you complete events and level up.");
+		
+		//Character Pic Hover Listsner
+		addHoverListener(characterPanel, "This is your character picture. It shows your gem location, as well as armor and weapons equiped.");
+		
+		//Add Listener for Stats Button
+		statsButton.addActionListener(new ActionListener() {
+
+			@Override			
+			public void actionPerformed(ActionEvent e) {
+								
+				healthPoints.setVisible(true);
+				strengthPoints.setVisible(true);
+				intelPoints.setVisible(true);
+				agilPoints.setVisible(true);
+								
+				characterPanel.setVisible(false);
+							
+			}
+							
+		});
+					
+		//Add Listener for Stats Button
+		characterButton.addActionListener(new ActionListener() {
+
+			@Override
+									
+				public void actionPerformed(ActionEvent e) {
+									
+					healthPoints.setVisible(false);
+					strengthPoints.setVisible(false);
+					intelPoints.setVisible(false);
+					agilPoints.setVisible(false);
+							
+					characterPanel.setVisible(true);
+									
+				}
+									
+		});
+		
+		//Add Listener for Enter Button
 		enter.addActionListener(new ActionListener() {
 
 			@Override
@@ -232,6 +276,8 @@ public class GUIContent{
 		
 	}
 
+	//Method to add component to GUI.
+	
 	private static void addComponent(JFrame frame, Component component, int posx, int posy, int width, int height){
 		
 		component.setBounds(posx, posy, width, height);
@@ -239,12 +285,31 @@ public class GUIContent{
 	
 	}
 	
+	//Method to add a component to a another panel of some sort.
+	
 	private static void addComponentFrame(JPanel panel, Component component, int posx, int posy, int width, int height){
 		
 		component.setSize(width, height);
 		component.setLocation(posx, posy);
 		panel.add(component);
 	
+	}
+	
+	//Method to add hover event
+	private static void addHoverListener(JComponent label, String text1){
+		
+		label.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent event) {
+                hover.setText(text1);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent event) {
+                hover.setText("Hover over a stat for details.");
+            }
+        });
+		
 	}
 	
 }

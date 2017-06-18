@@ -1,0 +1,11 @@
+package com.reyzerbit.guis;
+
+public class ComabtGUI{
+
+	public static void initCombat(){
+		
+		
+		
+	}
+	
+}

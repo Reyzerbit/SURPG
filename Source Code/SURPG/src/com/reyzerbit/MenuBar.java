@@ -9,6 +9,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import com.reyzerbit.fetchDataClasses.SaveLoad;
+import com.reyzerbit.guis.ConsoleGUI;
 import com.reyzerbit.guis.GUIContent;
 
 public class MenuBar {
@@ -25,6 +26,7 @@ public class MenuBar {
 	//Game and Stats
 	static JMenu gameStuff = new JMenu("Game");
 	static JMenu stats = new JMenu("Check Stats");
+	static JMenu developerStuff = new JMenu("Developer");
 	
 	//Menu Items
 	
@@ -37,6 +39,9 @@ public class MenuBar {
 	//Game and Stats
 	public static JMenuItem healthPoints = new JMenuItem("HP: " + Feats.health);
 	
+	//Developer
+	static JMenuItem console = new JMenuItem("Console");
+	
 	public static void initMenuBar(){
 		
 		GUIContent.gui.setJMenuBar(menuBar);
@@ -47,6 +52,8 @@ public class MenuBar {
 		menuBar.add(menuFile);
 		//Add Game
 		menuBar.add(gameStuff);
+		//Add Developer
+		menuBar.add(developerStuff);
 		
 		//Add Items to File
 		menuFile.add(saveGame);
@@ -57,6 +64,9 @@ public class MenuBar {
 		//Add Items to Game
 		gameStuff.add(stats);
 		stats.add(healthPoints);
+		
+		//Add Items to Developer
+		developerStuff.add(console);
 		
 		//Load Game Menu
 		loadGame.add(pickFile);
@@ -96,6 +106,18 @@ public class MenuBar {
 			public void actionPerformed(ActionEvent e) {
 				
 				SaveLoad.saveNewGame();
+				
+			}
+			
+		});
+		
+		console.addActionListener(new ActionListener() {
+
+			@Override
+			
+			public void actionPerformed(ActionEvent e) {
+				
+				ConsoleGUI.initConsole();
 				
 			}
 			

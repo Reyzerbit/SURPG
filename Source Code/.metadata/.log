@@ -627,3 +627,39 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.
 git: error: unable to locate xcodebuild, please make sure the path to the Xcode folder is set correctly!
 git: error: You can set the path to the Xcode folder using /usr/bin/xcode-select -switch
 '
+!SESSION 2017-06-19 10:47:56.801 -----------------------------------------------
+eclipse.buildId=4.6.3.M20170301-0400
+java.version=1.8.0_66
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/diegobatista/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/diegobatista/.eclipse_keyring
+
+!ENTRY org.eclipse.core.net 1 0 2017-06-19 10:51:48.325
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-06-19 10:51:54.838
+!MESSAGE Exception caught during execution of command '[git, --version]' in '/usr/bin', return code '71', error message 'dyld: Library not loaded: @rpath/XCTest.framework/Versions/A/XCTest
+  Referenced from: /Applications/Xcode.app/Contents/Frameworks/IDEFoundation.framework/Versions/A/IDEFoundation
+  Reason: image not found
+git: error: unable to locate xcodebuild, please make sure the path to the Xcode folder is set correctly!
+git: error: You can set the path to the Xcode folder using /usr/bin/xcode-select -switch
+'
+!SESSION 2017-06-19 15:57:54.796 -----------------------------------------------
+eclipse.buildId=4.6.3.M20170301-0400
+java.version=1.8.0_66
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/diegobatista/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/diegobatista/.eclipse_keyring
+
+!ENTRY org.eclipse.core.net 1 0 2017-06-19 15:58:19.167
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2017-06-19 15:58:39.029
+!MESSAGE Exception caught during execution of command '[git, --version]' in '/usr/bin', return code '71', error message 'dyld: Library not loaded: @rpath/XCTest.framework/Versions/A/XCTest
+  Referenced from: /Applications/Xcode.app/Contents/Frameworks/IDEFoundation.framework/Versions/A/IDEFoundation
+  Reason: image not found
+git: error: unable to locate xcodebuild, please make sure the path to the Xcode folder is set correctly!
+git: error: You can set the path to the Xcode folder using /usr/bin/xcode-select -switch
+'

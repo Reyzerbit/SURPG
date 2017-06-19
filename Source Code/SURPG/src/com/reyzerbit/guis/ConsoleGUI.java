@@ -26,6 +26,8 @@ public class ConsoleGUI {
 		
 	public static void initConsole(){
 			
+		inputWindow.setText("");
+		
 		consoleGUI.getContentPane().setLayout(null);
 		consoleGUI.setVisible(true);
 		consoleGUI.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -34,6 +36,8 @@ public class ConsoleGUI {
 		consoleGUI.setTitle("Console");
 		consoleGUI.setResizable(false);
 		consoleGUI.setLocationRelativeTo(null);
+		
+		inputWindow.setLineWrap(true);
 		
 		enter.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
 		enter.setOpaque(true);
@@ -65,13 +69,20 @@ public class ConsoleGUI {
 
 				String lastLine = inputWindow.getText().substring(start, end);
 				
-				if(lastLine.equals("startCombat")){
+				String[] lineArray = lastLine.split(" ");
+				
+				if(lineArray[0].equals("startCombat") && lineArray.length == 2){
 					
-					inputWindow.append("\n\nOpening Combat GUI\n\n");
-					CombatGUI.initCombat();
+					int combatSliderSpeed = Integer.parseInt(lineArray[1]);
 					
-				}
-				else{
+					CombatGUI.initCombat(combatSliderSpeed);
+					consoleGUI.dispose();
+					
+				}else if(lineArray[0].equals("startCombat") && lineArray.length != 2){
+					
+					inputWindow.append("\n\nThis command uses the layout startCombat (Speed of combat slider in milliseconds.\n\n");
+					
+				}else{
 					
 					inputWindow.append("\n\nUnknown Command\n\n");
 					
@@ -82,6 +93,7 @@ public class ConsoleGUI {
 		});
 				
 	}
+	
 	
 	//Method to add component to GUI.
 	

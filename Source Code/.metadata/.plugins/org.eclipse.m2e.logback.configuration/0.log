@@ -90,3 +90,17 @@ git: error: You can set the path to the Xcode folder using /usr/bin/xcode-select
 git: error: unable to locate xcodebuild, please make sure the path to the Xcode folder is set correctly!
 git: error: You can set the path to the Xcode folder using /usr/bin/xcode-select -switch
 '
+2017-06-19 10:51:53,444 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-06-19 10:51:54,837 [Worker-1] WARN  org.eclipse.jgit.util.FS - Exception caught during execution of command '[git, --version]' in '/usr/bin', return code '71', error message 'dyld: Library not loaded: @rpath/XCTest.framework/Versions/A/XCTest
+  Referenced from: /Applications/Xcode.app/Contents/Frameworks/IDEFoundation.framework/Versions/A/IDEFoundation
+  Reason: image not found
+git: error: unable to locate xcodebuild, please make sure the path to the Xcode folder is set correctly!
+git: error: You can set the path to the Xcode folder using /usr/bin/xcode-select -switch
+'
+2017-06-19 15:58:36,204 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-06-19 15:58:39,009 [Worker-4] WARN  org.eclipse.jgit.util.FS - Exception caught during execution of command '[git, --version]' in '/usr/bin', return code '71', error message 'dyld: Library not loaded: @rpath/XCTest.framework/Versions/A/XCTest
+  Referenced from: /Applications/Xcode.app/Contents/Frameworks/IDEFoundation.framework/Versions/A/IDEFoundation
+  Reason: image not found
+git: error: unable to locate xcodebuild, please make sure the path to the Xcode folder is set correctly!
+git: error: You can set the path to the Xcode folder using /usr/bin/xcode-select -switch
+'

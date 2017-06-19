@@ -14,7 +14,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import com.reyzerbit.Feats;
-import com.reyzerbit.MenuBar;
+import com.reyzerbit.guis.MenuBar;
 
 public class RecentsLoad {
 

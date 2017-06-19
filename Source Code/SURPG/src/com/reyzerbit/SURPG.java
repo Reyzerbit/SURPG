@@ -7,7 +7,9 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import com.reyzerbit.fetchDataClasses.RecentsLoad;
+import com.reyzerbit.guis.CombatGUI;
 import com.reyzerbit.guis.GUIContent;
+import com.reyzerbit.guis.MenuBar;
 import com.reyzerbit.storyline.PickingCharacter;
 
 public class SURPG {
@@ -30,6 +32,9 @@ public class SURPG {
 		
 		//Disable save game feature and file is loaded.
 		MenuBar.saveGame.disable();
+		
+		//Start Combat Thread
+		CombatGUI.threadMove.start();
 		
 		//Begin Game
 		PickingCharacter.run0();

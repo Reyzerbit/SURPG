@@ -13,7 +13,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import com.reyzerbit.Feats;
-import com.reyzerbit.MenuBar;
 import com.reyzerbit.fetchDataClasses.SaveLoad;
 
 public class SaveNewWindow {

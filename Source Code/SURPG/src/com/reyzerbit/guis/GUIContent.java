@@ -75,7 +75,6 @@ public class GUIContent{
 		in2 = GUIContent.class.getClassLoader().getResourceAsStream("com/reyzerbit/assets/CharacterPic.png");
 		
 		background = ImageIO.read(in);
-		characterPic = ImageIO.read(in2);
 		
 		//Remove comments once Lauryn draws the picture.
 		

@@ -7,4 +7,4 @@ We would love it if you would share this with your friends and help us out by pr
 I am currently working on version 1.0. All version of this game will be released as a Mac .app, a Windows .exe, and the basic .jar file. All source code will be here. Please do not use this code unless I give you permission! You may look, but do not touch.
 
 ## Patreon
-Yet to come!
+https://www.patreon.com/Reyzerbit

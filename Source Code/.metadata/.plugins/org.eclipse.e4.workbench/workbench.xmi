@@ -157,7 +157,7 @@
         <tags>EditorStack</tags>
         <tags>active</tags>
         <children xsi:type="basic:Part" xmi:id="_NTSIS1JHEeekCryi5ZbGAw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Feats.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Feats.java&quot; partName=&quot;Feats.java&quot; title=&quot;Feats.java&quot; tooltip=&quot;SURPG/src/com/reyzerbit/Feats.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/SURPG/src/com/reyzerbit/Feats.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;37&quot; selectionOffset=&quot;966&quot; selectionTopPixel=&quot;341&quot;/>&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Feats.java&quot; partName=&quot;Feats.java&quot; title=&quot;Feats.java&quot; tooltip=&quot;SURPG/src/com/reyzerbit/Feats.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/SURPG/src/com/reyzerbit/Feats.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;2669&quot; selectionTopPixel=&quot;1636&quot;/>&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
@@ -179,7 +179,7 @@
           </menus>
         </children>
         <children xsi:type="basic:Part" xmi:id="_NTSIT1JHEeekCryi5ZbGAw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="SURPG.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;SURPG.java&quot; partName=&quot;SURPG.java&quot; title=&quot;SURPG.java&quot; tooltip=&quot;SURPG/src/com/reyzerbit/SURPG.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/SURPG/src/com/reyzerbit/SURPG.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1028&quot; selectionTopPixel=&quot;31&quot;/>&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;SURPG.java&quot; partName=&quot;SURPG.java&quot; title=&quot;SURPG.java&quot; tooltip=&quot;SURPG/src/com/reyzerbit/SURPG.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/SURPG/src/com/reyzerbit/SURPG.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1028&quot; selectionTopPixel=&quot;75&quot;/>&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
@@ -245,13 +245,13 @@
           </menus>
         </children>
         <children xsi:type="basic:Part" xmi:id="_NTSIW1JHEeekCryi5ZbGAw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="PickingCharacter.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;PickingCharacter.java&quot; partName=&quot;PickingCharacter.java&quot; title=&quot;PickingCharacter.java&quot; tooltip=&quot;SURPG/src/com/reyzerbit/storyline/PickingCharacter.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/SURPG/src/com/reyzerbit/storyline/PickingCharacter.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;4628&quot; selectionTopPixel=&quot;1914&quot;/>&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;PickingCharacter.java&quot; partName=&quot;PickingCharacter.java&quot; title=&quot;PickingCharacter.java&quot; tooltip=&quot;SURPG/src/com/reyzerbit/storyline/PickingCharacter.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/SURPG/src/com/reyzerbit/storyline/PickingCharacter.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;4579&quot; selectionTopPixel=&quot;1879&quot;/>&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_NTSIXFJHEeekCryi5ZbGAw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="GUIContent.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;GUIContent.java&quot; partName=&quot;GUIContent.java&quot; title=&quot;GUIContent.java&quot; tooltip=&quot;SURPG/src/com/reyzerbit/guis/GUIContent.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/SURPG/src/com/reyzerbit/guis/GUIContent.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;279&quot; selectionOffset=&quot;2850&quot; selectionTopPixel=&quot;756&quot;/>&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;GUIContent.java&quot; partName=&quot;GUIContent.java&quot; title=&quot;GUIContent.java&quot; tooltip=&quot;SURPG/src/com/reyzerbit/guis/GUIContent.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/SURPG/src/com/reyzerbit/guis/GUIContent.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;279&quot; selectionOffset=&quot;2850&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
@@ -273,7 +273,7 @@
           </menus>
         </children>
         <children xsi:type="basic:Part" xmi:id="_1cfh0FPXEeeuAZdtQRP7jg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="CombatGUI.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CombatGUI.java&quot; partName=&quot;CombatGUI.java&quot; title=&quot;CombatGUI.java&quot; tooltip=&quot;SURPG/src/com/reyzerbit/guis/CombatGUI.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/SURPG/src/com/reyzerbit/guis/CombatGUI.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;5896&quot; selectionTopPixel=&quot;2808&quot;/>&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CombatGUI.java&quot; partName=&quot;CombatGUI.java&quot; title=&quot;CombatGUI.java&quot; tooltip=&quot;SURPG/src/com/reyzerbit/guis/CombatGUI.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/SURPG/src/com/reyzerbit/guis/CombatGUI.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;8402&quot; selectionTopPixel=&quot;4152&quot;/>&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
@@ -281,7 +281,7 @@
           <tags>activeOnClose</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_y3S9gFUREeeCHOpSZ6G1Bg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="ConsoleGUI.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;ConsoleGUI.java&quot; partName=&quot;ConsoleGUI.java&quot; title=&quot;ConsoleGUI.java&quot; tooltip=&quot;SURPG/src/com/reyzerbit/guis/ConsoleGUI.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/SURPG/src/com/reyzerbit/guis/ConsoleGUI.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;915&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;ConsoleGUI.java&quot; partName=&quot;ConsoleGUI.java&quot; title=&quot;ConsoleGUI.java&quot; tooltip=&quot;SURPG/src/com/reyzerbit/guis/ConsoleGUI.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/SURPG/src/com/reyzerbit/guis/ConsoleGUI.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1947&quot; selectionTopPixel=&quot;22&quot;/>&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
@@ -471,7 +471,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_NTSuYlJHEeekCryi5ZbGAw" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_alHPYFU6EeeM-6H8hkkcsg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_NTXng1JHEeekCryi5ZbGAw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_HJ4IcFVrEeeVU4y3P358yQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_NTXng1JHEeekCryi5ZbGAw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_NTSub1JHEeekCryi5ZbGAw" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -495,7 +495,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_NTSuslJHEeekCryi5ZbGAw" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_alTcoFU6EeeM-6H8hkkcsg" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_NTXm9lJHEeekCryi5ZbGAw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_HJ59olVrEeeVU4y3P358yQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_NTXm9lJHEeekCryi5ZbGAw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_NTSuvVJHEeekCryi5ZbGAw" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -986,7 +986,7 @@
     <bindings xmi:id="_NTTVqVJHEeekCryi5ZbGAw" keySequence="ALT+COMMAND+X A" command="_NTWZAVJHEeekCryi5ZbGAw">
       <tags>platform:cocoa</tags>
     </bindings>
-    <bindings xmi:id="_ZNjmkVU6EeeM-6H8hkkcsg" keySequence="COMMAND+CTRL+F" command="_NTXoplJHEeekCryi5ZbGAw"/>
+    <bindings xmi:id="_Gt1ssVVrEeeVU4y3P358yQ" keySequence="COMMAND+CTRL+F" command="_NTXoplJHEeekCryi5ZbGAw"/>
   </bindingTables>
   <bindingTables xmi:id="_NTTVq1JHEeekCryi5ZbGAw" elementId="org.eclipse.mylyn.tasks.ui.views.tasks" bindingContext="_NTT8O1JHEeekCryi5ZbGAw">
     <bindings xmi:id="_NTTVrFJHEeekCryi5ZbGAw" keySequence="ALT+SHIFT+ARROW_DOWN" command="_NTXn5lJHEeekCryi5ZbGAw"/>
@@ -1092,7 +1092,7 @@
     <bindings xmi:id="_NTTV9FJHEeekCryi5ZbGAw" keySequence="F5" command="_NTXn5FJHEeekCryi5ZbGAw"/>
   </bindingTables>
   <bindingTables xmi:id="_NTTV9VJHEeekCryi5ZbGAw" contributorURI="platform:/fragment/org.eclipse.e4.ui.workbench.renderers.swt.cocoa" bindingContext="_NTT8PlJHEeekCryi5ZbGAw">
-    <bindings xmi:id="_ZNlbwFU6EeeM-6H8hkkcsg" keySequence="M1+W" command="_NTXoqFJHEeekCryi5ZbGAw"/>
+    <bindings xmi:id="_Gt1sslVrEeeVU4y3P358yQ" keySequence="M1+W" command="_NTXoqFJHEeekCryi5ZbGAw"/>
   </bindingTables>
   <bindingTables xmi:id="_NTTV91JHEeekCryi5ZbGAw" bindingContext="_NTT8RFJHEeekCryi5ZbGAw"/>
   <bindingTables xmi:id="_NTTV-FJHEeekCryi5ZbGAw" bindingContext="_NTT8RVJHEeekCryi5ZbGAw"/>

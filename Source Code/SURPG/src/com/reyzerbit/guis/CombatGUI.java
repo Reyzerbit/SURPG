@@ -14,8 +14,11 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
+
+import com.reyzerbit.Feats;
 
 public class CombatGUI{
 	
@@ -30,7 +33,6 @@ public class CombatGUI{
 	
 	//Frame
 	public static JFrame combatGUI = new JFrame();
-	
 	//Buttons
 	public static JButton fight = new JButton("Fight");
 	public static JButton items = new JButton("Items");
@@ -51,6 +53,11 @@ public class CombatGUI{
 	static int speedSlider = 5;
 	static int stopSlider = 1;
 	static int damageInt = 0;
+	public static int enemyHealthVar = 0;
+	
+	//JLabel
+	public static JLabel enemyHealthLabel = new JLabel(" Enemy HP: " + enemyHealthVar);
+	
 	
 	//Moving Slider Thread
 	public static Thread threadMove = new Thread(new Runnable(){
@@ -122,7 +129,7 @@ public class CombatGUI{
 	    
 	});
 	
-	public static void initCombat(int speedNumber){
+	public static void initCombat(int speedNumber, int enemyHealth, int enemyStrength){
 		
 		bar = GUIContent.class.getClassLoader().getResourceAsStream("com/reyzerbit/assets/combatBar.png");
 		try {
@@ -139,6 +146,9 @@ public class CombatGUI{
 	            super.repaint();
 	        }
 	    };
+	    
+	    enemyHealthVar = enemyHealth;
+	    Feats.resetStat();
 		
 		speedSlider = speedNumber;
 		
@@ -168,16 +178,18 @@ public class CombatGUI{
 		setVisuals(hit, Color.BLACK, 2, Color.LIGHT_GRAY, false);
 		setVisuals(cancel, Color.BLACK, 2, Color.LIGHT_GRAY, false);
 		setVisuals(enemyWindow, Color.BLACK, 2, Color.WHITE, true);
+		setVisuals(enemyHealthLabel, Color.BLACK, 2, Color.RED, true);
 		
 		addComponent(combatGUI, fight, 30, 260, 100, 30);
 		addComponent(combatGUI, items, 160, 260, 100, 30);
 		addComponent(combatGUI, abilities, 30, 320, 100, 30);
 		addComponent(combatGUI, flee, 160, 320, 100, 30);
-		addComponent(combatGUI, enemyWindow, 30, 30, 230, 200);
+		addComponent(combatGUI, enemyWindow, 30, 30, 230, 150);
 		addComponent(combatGUI, combatSlider, 30, 240, 230, 30);
 		addComponent(combatGUI, combatPanel, 30, 270, 230, 30);
 		addComponent(combatGUI, hit, 30, 320, 100, 30);
 		addComponent(combatGUI, cancel, 160, 320, 100, 30);
+		addComponent(combatGUI, enemyHealthLabel, 30, 200, 100, 30);
 		
 		fight.addActionListener(new ActionListener() {
 
@@ -218,13 +230,26 @@ public class CombatGUI{
 			@Override			
 			public void actionPerformed(ActionEvent e) {
 				
-				damageInt = combatSlider.getValue();
-				
 				hit.setEnabled(false);
 				
-				System.out.println("You delt " + damageInt + " damage to your enemy.");
-				
 				stopSlider = 1;
+				
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}
+				
+				enemyHealthVar = enemyHealthVar - calculateDamage(combatSlider.getValue());
+				Feats.resetStat();
+				
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}
+				
+				cancel.doClick();
 				
 			}
 					
@@ -268,6 +293,38 @@ public class CombatGUI{
 		comp.setOpaque(true);
 		comp.setBackground(background);
 		comp.setVisible(visible);
+		
+	}
+	
+	private static int calculateDamage(int percentage){
+		
+		int totalDamage = 0;
+		
+		if(percentage <= 25 || percentage >= 75){
+			
+			totalDamage = ((int) Math.floor(Feats.physicalStrength * 0));
+			
+		}else if(percentage > 25 && percentage <= 40 || percentage < 75 && percentage >= 60){
+			
+			totalDamage = Feats.physicalStrength * 1;
+			
+		}else if(percentage > 40 && percentage <= 48 || percentage < 60 && percentage >= 52){
+			
+			totalDamage = ((int) Math.floor(Feats.physicalStrength * 1.5));
+			
+		}else if(percentage > 48 && percentage < 52){
+			
+			totalDamage = ((int) Math.floor(Feats.physicalStrength * 2));
+			
+		}else{
+			
+			System.out.println("Something went wrong");
+			
+		}
+		
+		System.out.println(totalDamage);
+		
+		return totalDamage;
 		
 	}
 	

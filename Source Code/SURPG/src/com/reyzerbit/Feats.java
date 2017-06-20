@@ -3,6 +3,7 @@ package com.reyzerbit;
 import java.io.File;
 
 import com.reyzerbit.fetchDataClasses.StringsClass;
+import com.reyzerbit.guis.CombatGUI;
 import com.reyzerbit.guis.GUIContent;
 import com.reyzerbit.storyline.PickingCharacter;
 import com.reyzerbit.storyline.Test;
@@ -10,10 +11,12 @@ import com.reyzerbit.storyline.Test;
 public class Feats {
 	
 	//Player Features
+	public static int physicalStrength = 0;
+	public static int mentalStrength = 0;
 	public static String gemSpot = new String("undefined");
 	public static String gemType = new String("undefined");
 	public static int health = 10;
-	public static int strength = 0;
+	public static int strength = physicalStrength + mentalStrength;
 	public static int agility = 0;
 	public static int intelligence = 0;
 	
@@ -128,11 +131,14 @@ public class Feats {
 	//Reset Stats GUI
 	
 	public static void resetStat(){
+
+		strength = physicalStrength + mentalStrength;
 		
 		GUIContent.agilPoints.setText("  Agl: " + agility);
 		GUIContent.strengthPoints.setText("  Str: " + strength);
 		GUIContent.intelPoints.setText("  Int: " + intelligence);
 		GUIContent.healthPoints.setText("  HP: " + health);
+		CombatGUI.enemyHealthLabel.setText(" Enemy HP: " + CombatGUI.enemyHealthVar);
 		
 		System.out.println("Stats reloaded.");
 		

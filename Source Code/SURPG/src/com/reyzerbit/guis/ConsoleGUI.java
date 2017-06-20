@@ -71,16 +71,18 @@ public class ConsoleGUI {
 				
 				String[] lineArray = lastLine.split(" ");
 				
-				if(lineArray[0].equals("startCombat") && lineArray.length == 2){
+				if(lineArray[0].equals("startCombat") && lineArray.length == 4){
 					
 					int combatSliderSpeed = Integer.parseInt(lineArray[1]);
+					int combatEnemyHealth = Integer.parseInt(lineArray[2]);
+					int combatEnemyStrength = Integer.parseInt(lineArray[3]);
 					
-					CombatGUI.initCombat(combatSliderSpeed);
+					CombatGUI.initCombat(combatSliderSpeed, combatEnemyHealth, combatEnemyStrength);
 					consoleGUI.dispose();
 					
-				}else if(lineArray[0].equals("startCombat") && lineArray.length != 2){
+				}else if(lineArray[0].equals("startCombat") && lineArray.length != 4){
 					
-					inputWindow.append("\n\nThis command uses the layout startCombat (Speed of combat slider in milliseconds.\n\n");
+					inputWindow.append("\n\nThis command is used like this:\nstartCombat [slider speed] [enemy health] [enemy strength]\n\n");
 					
 				}else{
 					

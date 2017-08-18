@@ -20,7 +20,7 @@ public class MenuBar {
 	
 	//Loading Saving
 	static JMenu menuFile = new JMenu("File");
-	static JMenu loadGame = new JMenu("Load Game");
+	public static JMenu loadGame = new JMenu("Load Game");
 	
 	//Game and Stats
 	static JMenu gameStuff = new JMenu("Game");
@@ -32,8 +32,8 @@ public class MenuBar {
 	//Loading Saving
 	public static JMenuItem saveGame = new JMenuItem("Save Game");
 	static JMenuItem newSave = new JMenuItem("Save New Game");
-	static JMenuItem pickFile = new JMenuItem("Select File to Load");
-	static JMenuItem recents = new JMenuItem("Recents");
+	public static JMenuItem pickFile = new JMenuItem("Select File to Load");
+	public static JMenuItem recents = new JMenuItem("Recents");
 	
 	//Game and Stats
 	public static JMenuItem healthPoints = new JMenuItem("HP: " + Feats.health);

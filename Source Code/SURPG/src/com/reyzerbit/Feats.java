@@ -17,39 +17,31 @@ public class Feats {
 	public static String gemType = new String("undefined");
 	
 	//Stats
-	public static int physicalStrength = 0;
-	public static int will = 0;
-	public static int endurance = 0;
-	public static int strength = 0;
+	public static long physicalStrength = 0;
+	public static long will = 0;
+	public static long endurance = 0;
+	public static long strength = 0;
 	
 	
-	public static int agility = 0;
-	public static int precision = 0;
-	public static int athletics = 0;
-	public static int balance = 0;
+	public static long agility = 0;
+	public static long precision = 0;
+	public static long athletics = 0;
+	public static long balance = 0;
 	
-	public static int intelligence = 0;
-	public static int insight = 0;
-	public static int communication = 0;
-	public static int problemSolving = 0;
+	public static long intelligence = 0;
+	public static long insight = 0;
+	public static long communication = 0;
+	public static long problemSolving = 0;
 	
-	public static float health = 10;
-	public static float maxHealth = 10;
+	public static long health = 10;
+	public static long maxHealth = 10;
 	
 	//Separator for Different OS's
 	public static String separate = new String(System.getProperty("file.separator"));
 	
-	//If recents file was already made
-	
-	public static int recMade = 0;
-	
 	//Location in Story
 	
 	public static long location = 0;
-	
-	//If Save is a Recent Load or not.
-	
-	public static int recent = 0;
 	
 	//Save File Location
 	
@@ -152,9 +144,19 @@ public class Feats {
 		intelligence = insight + communication + problemSolving;
 		agility = precision + balance + athletics;
 		
-		GUIContent.agilPoints.setText("  Agl: " + agility);
-		GUIContent.strengthPoints.setText("  Str: " + strength);
-		GUIContent.intelPoints.setText("  Int: " + intelligence);
+		GUIContent.agilPoints.setText("Agl: " + agility);
+		GUIContent.strengthPoints.setText("Str: " + strength);
+		GUIContent.intelPoints.setText("Int: " + intelligence);
+		GUIContent.physicalPoints.setText("PS: " + physicalStrength);
+		GUIContent.willPoints.setText("Will: "  + will);
+		GUIContent.endurancePoints.setText("End: " + endurance);
+		GUIContent.communicationPoints.setText("Com: " + communication);
+		GUIContent.problemSolvePoints.setText("Prob: " + problemSolving);
+		GUIContent.insightPoints.setText("Ins: " + insight);
+		GUIContent.precisionPoints.setText("Prec: " + precision);
+		GUIContent.athleticsPoints.setText("Ath: " + athletics);
+		GUIContent.balancePoints.setText("Bal: " + balance);
+		
 		CombatGUI.enemyHealthLabel.setText(" Enemy HP: " + CombatGUI.enemyHealthVar);
 		
 		//Calculate health bar amount.

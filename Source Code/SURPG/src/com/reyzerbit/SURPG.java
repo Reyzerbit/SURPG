@@ -6,7 +6,7 @@ import java.net.URISyntaxException;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import com.reyzerbit.fetchDataClasses.RecentsLoad;
+import com.reyzerbit.fetchDataClasses.RecentsSystem;
 import com.reyzerbit.guis.CombatGUI;
 import com.reyzerbit.guis.GUIContent;
 import com.reyzerbit.guis.MenuBar;
@@ -40,7 +40,7 @@ public class SURPG {
 		PickingCharacter.run0();
 		
 		//Load Recents
-		RecentsLoad.loadRecents();
+		RecentsSystem.loadRecents();
 
 	}
 

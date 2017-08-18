@@ -19,10 +19,10 @@ import com.reyzerbit.guis.MenuBar;
 public class RecentsLoad {
 
 	//Add recent method.
-	public static void addRecent(File file, long exist){
+	public static void addRecent(File file){
 		
 		//If the file says it exists, and the recents file wasn't just made, tell console that it already exists.
-		if(exist == 1 && Feats.recMade == 0){
+		if(file.exists()){
 			
 			System.out.println("Recent already exists.");
 			
@@ -31,7 +31,7 @@ public class RecentsLoad {
 		else{
 			
 			//Get recents file.
-	        String filePath = new String(System.getProperty("user.home") + Feats.separate + "Documents" + Feats.separate + "SURPG" + Feats.separate + "RequiredFiles" + Feats.separate + "recents.json");
+	        String filePath = new String(System.getProperty("user.home") + Feats.separate + "Documents" + Feats.separate + "SURPG" + Feats.separate + "RequiredFiles" + Feats.separate + "Recents.json");
 
 	        //Attempt to read recents file.
             JSONParser parser = new JSONParser();

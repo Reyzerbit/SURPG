@@ -53,7 +53,7 @@ public class CombatGUI{
 	static int speedSlider = 5;
 	static int stopSlider = 1;
 	static int damageInt = 0;
-	public static int enemyHealthVar = 0;
+	public static long enemyHealthVar = 0;
 	
 	//JLabel
 	public static JLabel enemyHealthLabel = new JLabel(" Enemy HP: " + enemyHealthVar);
@@ -296,9 +296,9 @@ public class CombatGUI{
 		
 	}
 	
-	private static int calculateDamage(int percentage){
+	private static long calculateDamage(int percentage){
 		
-		int totalDamage = 0;
+		long totalDamage = 0;
 		
 		if(percentage <= 25 || percentage >= 75){
 			

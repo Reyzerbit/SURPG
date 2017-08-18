@@ -206,7 +206,7 @@ public class GUIContent{
 		setVisuals(precisionPoints, Color.BLACK, 2, new Color(255, 239, 140), true);
 		setVisuals(athleticsPoints, Color.BLACK, 2, new Color(255, 239, 140), true);
 		setVisuals(balancePoints, Color.BLACK, 2, new Color(255, 239, 140), true);
-		setVisualsPanel(healthBar, Color.BLACK, 2, new Color(229, 96, 87), true);
+		setVisualsPanel(healthBar, Color.BLACK, 2, Color.WHITE, true);
 		
 		//Add Label to Health Bar
 		healthBar.add(healthPointLabel);

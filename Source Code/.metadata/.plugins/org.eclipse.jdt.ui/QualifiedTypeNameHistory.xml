@@ -12,4 +12,5 @@
 <fullyQualifiedTypeName name="com.reyzerbit.guis.CombatGUI"/>
 <fullyQualifiedTypeName name="com.reyzerbit.guis.HealthRectangle"/>
 <fullyQualifiedTypeName name="com.reyzerbit.Feats"/>
+<fullyQualifiedTypeName name="com.reyzerbit.fetchDataClasses.RecentsSystem"/>
 </qualifiedTypeNameHistroy>

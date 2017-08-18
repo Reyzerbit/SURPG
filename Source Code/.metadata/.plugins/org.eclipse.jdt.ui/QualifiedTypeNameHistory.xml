@@ -9,6 +9,7 @@
 <fullyQualifiedTypeName name="javax.swing.JComponent"/>
 <fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="javax.swing.JFrame"/>
-<fullyQualifiedTypeName name="com.reyzerbit.Feats"/>
 <fullyQualifiedTypeName name="com.reyzerbit.guis.CombatGUI"/>
+<fullyQualifiedTypeName name="com.reyzerbit.guis.HealthRectangle"/>
+<fullyQualifiedTypeName name="com.reyzerbit.Feats"/>
 </qualifiedTypeNameHistroy>

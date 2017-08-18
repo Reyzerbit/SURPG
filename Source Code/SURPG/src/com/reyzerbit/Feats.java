@@ -5,20 +5,36 @@ import java.io.File;
 import com.reyzerbit.fetchDataClasses.StringsClass;
 import com.reyzerbit.guis.CombatGUI;
 import com.reyzerbit.guis.GUIContent;
+import com.reyzerbit.guis.HealthRectangle;
 import com.reyzerbit.storyline.PickingCharacter;
 import com.reyzerbit.storyline.Test;
 
 public class Feats {
 	
 	//Player Features
-	public static int physicalStrength = 0;
-	public static int mentalStrength = 0;
+	//Gem spot and type.
 	public static String gemSpot = new String("undefined");
 	public static String gemType = new String("undefined");
-	public static int health = 10;
-	public static int strength = physicalStrength + mentalStrength;
+	
+	//Stats
+	public static int physicalStrength = 0;
+	public static int will = 0;
+	public static int endurance = 0;
+	public static int strength = 0;
+	
+	
 	public static int agility = 0;
+	public static int precision = 0;
+	public static int athletics = 0;
+	public static int balance = 0;
+	
 	public static int intelligence = 0;
+	public static int insight = 0;
+	public static int communication = 0;
+	public static int problemSolving = 0;
+	
+	public static float health = 10;
+	public static float maxHealth = 10;
 	
 	//Separator for Different OS's
 	public static String separate = new String(System.getProperty("file.separator"));
@@ -132,13 +148,19 @@ public class Feats {
 	
 	public static void resetStat(){
 
-		strength = physicalStrength + mentalStrength;
+		strength = physicalStrength + will + endurance;
+		intelligence = insight + communication + problemSolving;
+		agility = precision + balance + athletics;
 		
 		GUIContent.agilPoints.setText("  Agl: " + agility);
 		GUIContent.strengthPoints.setText("  Str: " + strength);
 		GUIContent.intelPoints.setText("  Int: " + intelligence);
-		GUIContent.healthPoints.setText("  HP: " + health);
 		CombatGUI.enemyHealthLabel.setText(" Enemy HP: " + CombatGUI.enemyHealthVar);
+		
+		//Calculate health bar amount.
+		HealthRectangle.healthPercent = Math.ceil((health/maxHealth)*140);
+		GUIContent.healthBar.repaint();
+		GUIContent.healthPointLabel.setText(Math.round(health) + "/" + Math.round(maxHealth));
 		
 		System.out.println("Stats reloaded.");
 		

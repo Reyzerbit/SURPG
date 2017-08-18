@@ -12,6 +12,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.text.BadLocationException;
 
+import com.reyzerbit.Feats;
+
 public class ConsoleGUI {
 	
 	//Frame
@@ -71,6 +73,8 @@ public class ConsoleGUI {
 				
 				String[] lineArray = lastLine.split(" ");
 				
+				
+				//Start Combat Command
 				if(lineArray[0].equals("startCombat") && lineArray.length == 4){
 					
 					int combatSliderSpeed = Integer.parseInt(lineArray[1]);
@@ -83,6 +87,30 @@ public class ConsoleGUI {
 				}else if(lineArray[0].equals("startCombat") && lineArray.length != 4){
 					
 					inputWindow.append("\n\nThis command is used like this:\nstartCombat [slider speed] [enemy health] [enemy strength]\n\n");
+				
+				//Decrease health command
+					
+				}else if(lineArray[0].equals("decreaseHealth") && lineArray.length == 2){
+					
+					Feats.health = Feats.health - (Integer.parseInt(lineArray[1]));
+					inputWindow.append("\n\nDecreased health by " + lineArray[1] + "\n\n");
+					Feats.resetStat();
+					
+				}else if(lineArray[0].equals("decreaseHealth") && lineArray.length != 2){
+					
+					inputWindow.append("\n\nYou need to enter the command like this:\n\ndecreaseHealth [decrease amount]\n\n");
+					
+				//Increase health command
+					
+				}else if(lineArray[0].equals("increaseHealth") && lineArray.length == 2){
+					
+					Feats.health = Feats.health + (Integer.parseInt(lineArray[1]));
+					inputWindow.append("\n\nIncreased health by " + lineArray[1] + "\n\n");
+					Feats.resetStat();
+					
+				}else if(lineArray[0].equals("increaseHealth") && lineArray.length != 2){
+					
+					inputWindow.append("\n\nYou need to enter the command like this:\n\nincreaseHealth [decrease amount]\n\n");
 					
 				}else{
 					

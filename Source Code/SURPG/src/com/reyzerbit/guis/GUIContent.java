@@ -23,6 +23,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 import com.reyzerbit.Feats;
 
@@ -33,10 +34,29 @@ public class GUIContent{
 	
 	//Labels
 	static JLabel inputLabel = new JLabel("");
-	public static JLabel healthPoints = new JLabel("  HP: " + Feats.health);
-	public static JLabel strengthPoints = new JLabel("  Str: " + Feats.strength);
-	public static JLabel intelPoints = new JLabel("  Int: " + Feats.intelligence);
-	public static JLabel agilPoints = new JLabel("  Agl: " + Feats.agility);
+	
+	//Health
+	
+	public static HealthRectangle healthBar = new HealthRectangle();
+	public static JLabel healthPointLabel = new JLabel(Math.round(Feats.health) + "/" + Math.round(Feats.maxHealth));
+	
+	//Strength
+	public static JLabel strengthPoints = new JLabel("Str: " + Feats.strength);
+	public static JLabel physicalPoints = new JLabel("PS: " + Feats.physicalStrength);
+	public static JLabel willPoints = new JLabel("Will: " + Feats.will);
+	public static JLabel endurancePoints = new JLabel("End: " + Feats.endurance);
+	
+	//Intelligence
+	public static JLabel intelPoints = new JLabel("Int: " + Feats.intelligence);
+	public static JLabel communicationPoints = new JLabel("Com: " + Feats.communication);
+	public static JLabel problemSolvePoints = new JLabel("Prob: " + Feats.problemSolving);
+	public static JLabel insightPoints = new JLabel("Ins: " + Feats.insight);
+	
+	//Agility
+	public static JLabel agilPoints = new JLabel("Agl: " + Feats.agility);
+	public static JLabel precisionPoints = new JLabel("Prec: " + Feats.precision);
+	public static JLabel athleticsPoints = new JLabel("Ath: " + Feats.athletics);
+	public static JLabel balancePoints = new JLabel("Bal: " + Feats.balance);
 	
 	//Panels
 	static JPanel stats = new JPanel();
@@ -47,7 +67,7 @@ public class GUIContent{
 	//Text IO
 	public static JTextArea outputWindow = new JTextArea();
 	public static JTextField inputWindow = new JTextField();
-	static JScrollPane scroll = new JScrollPane(outputWindow);
+	public static JScrollPane scroll = new JScrollPane(outputWindow);
 	
 	//Input Streams
 	static InputStream in = null;
@@ -67,6 +87,17 @@ public class GUIContent{
 	public static void init() throws IOException, URISyntaxException{
 		
 		//Initiate Game GUI
+		
+		//Health Bar
+		@SuppressWarnings("serial")
+		JPanel characterPanel = new JPanel() {
+	        @Override
+	        protected void paintComponent(Graphics g) {
+	            super.paintComponent(g);
+	            g.drawImage(characterPic, 0, 0, null);
+	            super.repaint();
+	        }
+	    };
 
 		//Background
 		in = GUIContent.class.getClassLoader().getResourceAsStream("com/reyzerbit/assets/background.jpg");
@@ -96,15 +127,6 @@ public class GUIContent{
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		@SuppressWarnings("serial")
-		JPanel characterPanel = new JPanel() {
-	        @Override
-	        protected void paintComponent(Graphics g) {
-	            super.paintComponent(g);
-	            g.drawImage(characterPic, 0, 0, null);
-	            super.repaint();
-	        }
-	    };
 		
 		//GUI Constraints
 		
@@ -112,7 +134,7 @@ public class GUIContent{
 		/*
 	    gui.setContentPane(backPic);
 	    */
-		
+	    
 		gui.getContentPane().setLayout(null);
 		gui.setVisible(true);
 		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -172,27 +194,45 @@ public class GUIContent{
 		hover.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3, true));
 		
 		//Stats JPanel Item Constraints
-		healthPoints.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-		healthPoints.setOpaque(true);
-		healthPoints.setBackground(new Color(255, 74, 90));
+		setVisuals(strengthPoints, Color.BLACK, 2, new Color(209, 39, 39), true);
+		setVisuals(intelPoints, Color.BLACK, 2, new Color(62, 232, 184), true);
+		setVisuals(agilPoints, Color.BLACK, 2, new Color(255, 233, 91), true);
+		setVisuals(physicalPoints, Color.BLACK, 2, new Color(219, 89, 89), true);
+		setVisuals(willPoints, Color.BLACK, 2, new Color(219, 89, 89), true);
+		setVisuals(endurancePoints, Color.BLACK, 2, new Color(219, 89, 89), true);
+		setVisuals(communicationPoints, Color.BLACK, 2, new Color(122, 249, 213), true);
+		setVisuals(problemSolvePoints, Color.BLACK, 2, new Color(122, 249, 213), true);
+		setVisuals(insightPoints, Color.BLACK, 2, new Color(122, 249, 213), true);
+		setVisuals(precisionPoints, Color.BLACK, 2, new Color(255, 239, 140), true);
+		setVisuals(athleticsPoints, Color.BLACK, 2, new Color(255, 239, 140), true);
+		setVisuals(balancePoints, Color.BLACK, 2, new Color(255, 239, 140), true);
+		setVisualsPanel(healthBar, Color.BLACK, 2, new Color(229, 96, 87), true);
 		
-		strengthPoints.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-		strengthPoints.setOpaque(true);
-		strengthPoints.setBackground(Color.ORANGE);
+		//Add Label to Health Bar
+		healthBar.add(healthPointLabel);
 		
-		intelPoints.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-		intelPoints.setOpaque(true);
-		intelPoints.setBackground(Color.BLUE);
+		//Place Components in the stats/character/etc. panel
+		//+50 between each Y space. +75 per X
+		addComponentFrame(stats, healthBar, 15, 20, 140, 30);
 		
-		agilPoints.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-		agilPoints.setOpaque(true);
-		agilPoints.setBackground(Color.GREEN);
+		//Strength
+		addComponentFrame(stats, strengthPoints, 15, 100, 65, 30);
+		addComponentFrame(stats, physicalPoints, 90, 100, 65, 30);
+		addComponentFrame(stats, willPoints, 165, 100, 65, 30);
+		addComponentFrame(stats, endurancePoints, 240, 100, 65, 30);
 		
-		//Place JPanel Components
-		addComponentFrame(stats, healthPoints, 30, 20, 65, 30);
-		addComponentFrame(stats, strengthPoints, 125, 20, 65, 30);
-		addComponentFrame(stats, intelPoints, 220, 20, 65, 30);
-		addComponentFrame(stats, agilPoints, 30, 70, 65, 30);
+		//Intelligence
+		addComponentFrame(stats, intelPoints, 15, 150, 65, 30);
+		addComponentFrame(stats, communicationPoints, 90, 150, 65, 30);
+		addComponentFrame(stats, problemSolvePoints, 165, 150, 65, 30);
+		addComponentFrame(stats, insightPoints, 240, 150, 65, 30);
+		
+		//Agility
+		addComponentFrame(stats, agilPoints, 15, 200, 65, 30);
+		addComponentFrame(stats, precisionPoints, 90, 200, 65, 30);
+		addComponentFrame(stats, athleticsPoints, 165, 200, 65, 30);
+		addComponentFrame(stats, balancePoints, 240, 200, 65, 30);
+		
 		addComponentFrame(stats, characterPanel, 30, 20, 80, 150);
 		
 		//Place Components
@@ -200,7 +240,7 @@ public class GUIContent{
 		addComponent(gui, inputWindow, 340, 35, 200, 20);
 		addComponent(gui, enter, 560, 35, 100, 20);
 		addComponent(gui, stats, 340, 80, 320, 250);
-		addComponent(gui, hover, 340, 380, 320, 80);
+		addComponent(gui, hover, 340, 360, 320, 100);
 		addComponent(gui, statsButton, 680, 80, 100, 30);
 		addComponent(gui, characterButton, 680, 130, 100, 30);
 		
@@ -211,18 +251,34 @@ public class GUIContent{
 		//Listener for Hovers
 				
 		//Health Points Hover Listener
-		addHoverListener(healthPoints, "Your health starts at ten, and will slowly raise as you level up.");
+		addHoverListener(healthBar, "Your health starts at ten, and will slowly raise as you level up.");
 		
 		//Strength Points Hover Listener
-		addHoverListener(strengthPoints, "Your strength starts at zero, and will grow as you complete events and level up.");
+		addHoverListener(strengthPoints, "Your strength starts at zero, and will grow as you complete events and level up. "
+				+ "It is a total of your Physical Strength (PS), your Will, and your Endurance (End).");
+		addHoverListener(physicalPoints, "Your physical strength points indicate how strong you are physically. "
+				+ "These values are used to calculate damage done during combat");
+		addHoverListener(willPoints, "Your will is your mental health, determining how sane you are, "
+				+ "as well how easy it is to corrupt you and your mind.");
+		addHoverListener(endurancePoints, "Your endurance is your ability to withstand specific taxing events, both emotionally and physically. "
+				+ "It is used in game to calculate how long you can stand up against pressure, be it mental or physical");
 		
 		//Intelligence Points Hover Listener
 		addHoverListener(intelPoints, "Your intelligence starts at zero, and will grow as you complete events and level up.");
+		addHoverListener(communicationPoints, "Your communication points determine how efective you are at persuading, "
+				+ "bargaining, and communicating with other entities.");
+		addHoverListener(problemSolvePoints, "Your problem solving points determine how easy it is to solve puzzles, hack terminals, and pick locks.");
+		addHoverListener(insightPoints, "Your insight points determine how observant you are, and how easily you notice things that "
+				+ "are out of the ordinary.");
 		
 		//Agility Points Hover Listener
 		addHoverListener(agilPoints, "Your agility starts at zero, and will grow as you complete events and level up.");
+		addHoverListener(precisionPoints, "Your precision points determine how accurate you are, including with long range weapons.");
+		addHoverListener(athleticsPoints, "Your athletics points determine your ability to out-run and out-maneuver enemies or other obstacles.");
+		addHoverListener(balancePoints, "Your balance points determine your ability to stay balanced in combat. Higher balance points make "
+				+ "it harder for you to be knocked prone.");
 		
-		//Character Pic Hover Listsner
+		//Character Picture Hover Listener
 		addHoverListener(characterPanel, "This is your character picture. It shows your gem location, as well as armor and weapons equiped.");
 		
 		//Add Listener for Stats Button
@@ -231,10 +287,19 @@ public class GUIContent{
 			@Override			
 			public void actionPerformed(ActionEvent e) {
 								
-				healthPoints.setVisible(true);
+				healthBar.setVisible(true);
 				strengthPoints.setVisible(true);
 				intelPoints.setVisible(true);
 				agilPoints.setVisible(true);
+				physicalPoints.setVisible(true);
+				willPoints.setVisible(true);
+				endurancePoints.setVisible(true);
+				communicationPoints.setVisible(true);
+				problemSolvePoints.setVisible(true);
+				insightPoints.setVisible(true);
+				precisionPoints.setVisible(true);
+				athleticsPoints.setVisible(true);
+				balancePoints.setVisible(true);
 								
 				characterPanel.setVisible(false);
 							
@@ -249,10 +314,19 @@ public class GUIContent{
 									
 				public void actionPerformed(ActionEvent e) {
 									
-					healthPoints.setVisible(false);
+					healthBar.setVisible(false);
 					strengthPoints.setVisible(false);
 					intelPoints.setVisible(false);
 					agilPoints.setVisible(false);
+					physicalPoints.setVisible(false);
+					willPoints.setVisible(false);
+					endurancePoints.setVisible(false);
+					communicationPoints.setVisible(false);
+					problemSolvePoints.setVisible(false);
+					insightPoints.setVisible(false);
+					precisionPoints.setVisible(false);
+					athleticsPoints.setVisible(false);
+					balancePoints.setVisible(false);
 							
 					characterPanel.setVisible(true);
 									
@@ -308,6 +382,25 @@ public class GUIContent{
                 hover.setText("Hover over a stat for details.");
             }
         });
+		
+	}
+	
+	private static void setVisuals(JLabel comp, Color border, int borderWidth, Color background, Boolean visible){
+		
+		comp.setBorder(BorderFactory.createLineBorder(border, borderWidth, true));
+		comp.setOpaque(true);
+		comp.setBackground(background);
+		comp.setVisible(visible);
+		comp.setHorizontalAlignment(SwingConstants.CENTER);
+		
+	}
+	
+	private static void setVisualsPanel(JPanel comp, Color border, int borderWidth, Color background, Boolean visible){
+		
+		comp.setBorder(BorderFactory.createLineBorder(border, borderWidth, true));
+		comp.setOpaque(true);
+		comp.setBackground(background);
+		comp.setVisible(visible);
 		
 	}
 	

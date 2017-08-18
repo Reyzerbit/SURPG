@@ -147,7 +147,7 @@ public class PickingCharacter {
 			Feats.addText(StringsClass.readString("s6"));
 			Feats.location = 5;
 			Feats.physicalStrength = Feats.physicalStrength + 1;
-			Feats.mentalStrength = Feats.mentalStrength + 1;
+			Feats.will++;
 			Feats.resetStat();
 				
 		}

@@ -6,6 +6,7 @@ import java.net.URISyntaxException;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import com.reyzerbit.fetchDataClasses.DownloadRequiredFiles;
 import com.reyzerbit.fetchDataClasses.RecentsSystem;
 import com.reyzerbit.guis.CombatGUI;
 import com.reyzerbit.guis.GUIContent;
@@ -21,6 +22,12 @@ public class SURPG {
         System.setProperty("apple.laf.useScreenMenuBar", "true");
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		
+        //Download required audio files.
+        
+        DownloadRequiredFiles.downloadAudioFile("https://raw.githubusercontent.com/jacobaccio/SURPG/Version-1.0/Resources/audio/Error.wav", "Error.wav");
+        DownloadRequiredFiles.downloadAudioFile("https://raw.githubusercontent.com/jacobaccio/SURPG/Version-1.0/Resources/audio/Upgrade.wav", "Upgrade.wav");
+        DownloadRequiredFiles.downloadAudioFile("https://raw.githubusercontent.com/jacobaccio/SURPG/Version-1.0/Resources/audio/Battle.wav", "Battle.wav");
+        
 		//Initialize GUI
 		
 		try {
@@ -31,7 +38,7 @@ public class SURPG {
 		MenuBar.initMenuBar();
 		
 		//Disable save game feature and file is loaded.
-		MenuBar.saveGame.disable();
+		MenuBar.saveGame.setEnabled(false);
 		
 		//Start Combat Thread
 		CombatGUI.threadMove.start();

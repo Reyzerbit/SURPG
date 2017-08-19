@@ -1,0 +1,13 @@
+package com.reyzerbit.guis;
+
+import javax.swing.JOptionPane;
+
+public class AlertUpgrade {
+
+	public static void upgrade(String upgrade){
+		
+		JOptionPane.showMessageDialog(null, "Your " + upgrade + " increased by one point.");
+		
+	}
+	
+}

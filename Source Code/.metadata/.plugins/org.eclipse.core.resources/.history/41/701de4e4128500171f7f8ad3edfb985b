@@ -1,0 +1,31 @@
+package com.reyzerbit.fetchDataClasses;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.apache.commons.io.FileUtils;
+
+public class DownloadRequiredFiles {
+	
+	//Make the recents file.
+	System.out.println("Making recents file.");
+	
+	//Set download URL for later use.
+	URL download = null;
+	try {
+		download = new URL("http://jacobaccio.github.io/Text_Files/recents.json");
+	} catch (MalformedURLException e2) {
+		e2.printStackTrace();
+		System.out.println("Failed to set URL for recents.json");
+	}
+	
+	//Try to download said file
+	try {
+		FileUtils.copyURLToFile(download, recentsFile, 30000, 30000);
+	} catch (IOException e) {
+		e.printStackTrace();
+		System.out.println("Failed to download recents.json");
+	}
+
+}

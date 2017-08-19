@@ -1,12 +1,12 @@
 package com.reyzerbit.storyline;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.swing.JOptionPane;
-
 import com.reyzerbit.Feats;
 import com.reyzerbit.fetchDataClasses.StringsClass;
+import com.reyzerbit.guis.AlertUpgrade;
 
 public class PickingCharacter {
 	
@@ -128,7 +128,7 @@ public class PickingCharacter {
 	}
 		
 	//Confrontation with Peridot.
-	public static void run4(String confrontation){
+	public static void run4(String confrontation) throws IOException{
 		//Attempt to run.
 		if(pChoices3_0.contains(confrontation.toUpperCase())){
 			
@@ -137,7 +137,7 @@ public class PickingCharacter {
 			Feats.addText(StringsClass.readString("s5.1"));
 			Feats.location = 5;
 			++Feats.agility;
-			JOptionPane.showMessageDialog(null, "Your agility increased by one point.");
+			AlertUpgrade.upgrade("agility");
 			Feats.resetStat();
 			
 		}
@@ -145,9 +145,10 @@ public class PickingCharacter {
 		else if(pChoices3_1.contains(confrontation.toUpperCase())){
 				
 			Feats.addText(StringsClass.readString("s6"));
-			Feats.location = 5;
+			Feats.location = 6;
 			Feats.physicalStrength++;
 			Feats.will++;
+			AlertUpgrade.upgrade("will and physical strength");
 			Feats.resetStat();
 				
 		}
@@ -155,9 +156,9 @@ public class PickingCharacter {
 		else if(pChoices3_2.contains(confrontation.toUpperCase())){
 				
 			Feats.addText(StringsClass.readString("s7"));
-			Feats.location = 5;
+			Feats.location = 7;
 			++Feats.intelligence;
-			JOptionPane.showMessageDialog(null, "Your intelligence increased by one point.");
+			AlertUpgrade.upgrade("intelligence");
 			Feats.resetStat();
 				
 		}

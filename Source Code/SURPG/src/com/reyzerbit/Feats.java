@@ -1,6 +1,7 @@
 package com.reyzerbit;
 
 import java.io.File;
+import java.io.IOException;
 
 import com.reyzerbit.fetchDataClasses.StringsClass;
 import com.reyzerbit.guis.CombatGUI;
@@ -33,8 +34,8 @@ public class Feats {
 	public static long communication = 0;
 	public static long problemSolving = 0;
 	
-	public static long health = 10;
-	public static long maxHealth = 10;
+	public static double health = 10;
+	public static double maxHealth = 10;
 	
 	//Separator for Different OS's
 	public static String separate = new String(System.getProperty("file.separator"));
@@ -58,7 +59,7 @@ public class Feats {
 	
 	//Path Run Method
 	
-	public static void runNextPath(long locator){
+	public static void runNextPath(long locator) throws IOException{
 
 		
 		if(locator == 0){
@@ -132,6 +133,10 @@ public class Feats {
 			Feats.addText(gemType);
 			Feats.addText(StringsClass.readString(locNum + ".1"));
 			
+		}else{
+			
+			Feats.addText(locatedName);
+			
 		}
 
 	}
@@ -157,10 +162,10 @@ public class Feats {
 		GUIContent.athleticsPoints.setText("Ath: " + athletics);
 		GUIContent.balancePoints.setText("Bal: " + balance);
 		
-		CombatGUI.enemyHealthLabel.setText(" Enemy HP: " + CombatGUI.enemyHealthVar);
+		CombatGUI.enemyHealthLabel.setText("Enemy HP: " + CombatGUI.enemyHealthVar);
 		
 		//Calculate health bar amount.
-		HealthRectangle.healthPercent = Math.ceil((health/maxHealth)*140);
+		HealthRectangle.healthPercent = (Math.ceil((health/maxHealth)*140));
 		GUIContent.healthBar.repaint();
 		GUIContent.healthPointLabel.setText(Math.round(health) + "/" + Math.round(maxHealth));
 		

@@ -4,15 +4,17 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.text.BadLocationException;
+import javax.swing.JTextField;
 
 import com.reyzerbit.Feats;
+import com.reyzerbit.fetchDataClasses.PlaySoundBite;
 
 public class ConsoleGUI {
 	
@@ -20,15 +22,18 @@ public class ConsoleGUI {
 	public static JFrame consoleGUI = new JFrame();
 	
 	//Text Area and Scroll
-	public static JTextArea inputWindow = new JTextArea();
-	static JScrollPane scroll = new JScrollPane(inputWindow);
+	public static JTextArea outputWindow = new JTextArea();
+	static JScrollPane scroll = new JScrollPane(outputWindow);
+	public static JTextField inputWindow = new JTextField();
+	
+	//Input
 	
 	//Buttons
 	static JButton enter = new JButton("Enter");
 		
 	public static void initConsole(){
 			
-		inputWindow.setText("");
+		outputWindow.setText("");
 		
 		consoleGUI.getContentPane().setLayout(null);
 		consoleGUI.setVisible(true);
@@ -38,41 +43,28 @@ public class ConsoleGUI {
 		consoleGUI.setTitle("Console");
 		consoleGUI.setResizable(false);
 		consoleGUI.setLocationRelativeTo(null);
-		
-		inputWindow.setLineWrap(true);
+		consoleGUI.getRootPane().setDefaultButton(enter);
 		
 		enter.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
 		enter.setOpaque(true);
 		enter.setBackground(Color.LIGHT_GRAY);
 		
-		addComponent(consoleGUI, scroll, 10, 10, 280, 320);
+		addComponent(consoleGUI, scroll, 10, 10, 280, 280);
+		addComponent(consoleGUI, inputWindow, 10, 300, 280, 20);
 		addComponent(consoleGUI, enter, 120, 335, 60, 30);
 			
+		inputWindow.requestFocus();
+		
 		//Add Listener for Enter Button
 		enter.addActionListener(new ActionListener() {
 
 			@Override
 					
 			public void actionPerformed(ActionEvent e) {
-						
-				int last  = inputWindow.getLineCount() - 1;
-				int start = 0;
-				try {
-					start = inputWindow.getLineStartOffset(last);
-				} catch (BadLocationException e1) {
-					e1.printStackTrace();
-				}
-				int end = 0;
-				try {
-					end = inputWindow.getLineEndOffset(last);
-				} catch (BadLocationException e1) {
-					e1.printStackTrace();
-				}
-
-				String lastLine = inputWindow.getText().substring(start, end);
 				
-				String[] lineArray = lastLine.split(" ");
+				String input = inputWindow.getText();
 				
+				String[] lineArray = input.split(" ");
 				
 				//Start Combat Command
 				if(lineArray[0].equals("startCombat") && lineArray.length == 4){
@@ -81,42 +73,74 @@ public class ConsoleGUI {
 					int combatEnemyHealth = Integer.parseInt(lineArray[2]);
 					int combatEnemyStrength = Integer.parseInt(lineArray[3]);
 					
-					CombatGUI.initCombat(combatSliderSpeed, combatEnemyHealth, combatEnemyStrength);
+					try {
+						CombatGUI.initCombat(combatSliderSpeed, combatEnemyHealth, combatEnemyStrength);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
 					consoleGUI.dispose();
 					
 				}else if(lineArray[0].equals("startCombat") && lineArray.length != 4){
 					
-					inputWindow.append("\n\nThis command is used like this:\nstartCombat [slider speed] [enemy health] [enemy strength]\n\n");
+					outputWindow.append("This command is used like this:\nstartCombat [slider speed] [enemy health] [enemy strength]\n\n");
 				
 				//Decrease health command
 					
-				}else if(lineArray[0].equals("decreaseHealth") && lineArray.length == 2){
+				}else if(lineArray[0].equals("setVal") && lineArray.length == 3){
 					
-					Feats.health = Feats.health - (Integer.parseInt(lineArray[1]));
-					inputWindow.append("\n\nDecreased health by " + lineArray[1] + "\n\n");
+					//Take the inputed feat variable and set it to inputed value
+					
+					long temp = Long.parseLong(lineArray[2]);
+					
+					try {
+						Feats.class.getField(lineArray[1]).set(lineArray[1], temp);;
+					} catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e1) {
+						e1.printStackTrace();
+					}
+					
+					outputWindow.append("Value set.\n\n");
+					
 					Feats.resetStat();
 					
-				}else if(lineArray[0].equals("decreaseHealth") && lineArray.length != 2){
+				}else if(lineArray[0].equals("setVal") && lineArray.length != 3){
 					
-					inputWindow.append("\n\nYou need to enter the command like this:\n\ndecreaseHealth [decrease amount]\n\n");
+					outputWindow.append("You need to enter the command like this:\n\nsetVal [value to reset] [value]\n\n");
 					
-				//Increase health command
+				}else if(lineArray[0].equals("testSound") && lineArray.length == 1){
 					
-				}else if(lineArray[0].equals("increaseHealth") && lineArray.length == 2){
+					//Test OpenAL Audio.
 					
-					Feats.health = Feats.health + (Integer.parseInt(lineArray[1]));
-					inputWindow.append("\n\nIncreased health by " + lineArray[1] + "\n\n");
+					PlaySoundBite.play(System.getProperty("user.home") + Feats.separate + "Documents" + Feats.separate + "SURPG" + 
+							Feats.separate + "RequiredFiles"+ Feats.separate + "audio"+ Feats.separate + "Error.wav", false);
+					
+					outputWindow.append("Playing sound.\n\n");
+					
 					Feats.resetStat();
 					
-				}else if(lineArray[0].equals("increaseHealth") && lineArray.length != 2){
+				}else if(lineArray[0].equals("testSound") && lineArray.length != 1){
 					
-					inputWindow.append("\n\nYou need to enter the command like this:\n\nincreaseHealth [decrease amount]\n\n");
+					outputWindow.append("You need to enter the command like this:\n\ntestSound\n\n");
+					
+				}else if(lineArray[0].equals("testUpgrade") && lineArray.length == 2){
+					
+					AlertUpgrade.upgrade(lineArray[1]);
+					
+					outputWindow.append("Upgrade panel testing.\n\n");
+					
+					Feats.resetStat();
+					
+				}else if(lineArray[0].equals("testUpgrade") && lineArray.length != 2){
+					
+					outputWindow.append("You need to enter the command like this:\n\ntestUpgrade [upgraded stat]\n\n");
 					
 				}else{
 					
-					inputWindow.append("\n\nUnknown Command\n\n");
+					outputWindow.append("Unknown Command\n\n");
+					outputWindow.append(Integer.toString(lineArray.length));
 					
 				}
+				
+				inputWindow.setText("");
 						
 			}
 					

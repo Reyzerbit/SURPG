@@ -95,8 +95,8 @@ public class SaveLoad {
 	            Feats.gemSpot = (String) jsonObject.get("Gem Placement");
 	            Feats.gemType = (String) jsonObject.get("Gem Type");
 	            
-	            Feats.health = (long) jsonObject.get("Current Health");
-	    		Feats.maxHealth = (long) jsonObject.get("Total Health");
+	            Feats.health = (double) jsonObject.get("Current Health");
+	    		Feats.maxHealth = (double) jsonObject.get("Total Health");
 	    		
 	    		Feats.strength = (long) jsonObject.get("Strength");
 	    		Feats.physicalStrength = (long) jsonObject.get("Physical Strength");
@@ -122,7 +122,7 @@ public class SaveLoad {
 			}
             
             //Enable save game.
-            MenuBar.saveGame.enable();
+            MenuBar.saveGame.setEnabled(true);
 
             //Clear output window.
     		GUIContent.outputWindow.setText("");
@@ -164,8 +164,8 @@ public class SaveLoad {
             Feats.gemSpot = (String) jsonObject.get("Gem Placement");
             Feats.gemType = (String) jsonObject.get("Gem Type");
             
-            Feats.health = (long) jsonObject.get("Current Health");
-    		Feats.maxHealth = (long) jsonObject.get("Total Health");
+            Feats.health = (double) jsonObject.get("Current Health");
+    		Feats.maxHealth = (double) jsonObject.get("Total Health");
     		
     		Feats.strength = (long) jsonObject.get("Strength");
     		Feats.physicalStrength = (long) jsonObject.get("Physical Strength");

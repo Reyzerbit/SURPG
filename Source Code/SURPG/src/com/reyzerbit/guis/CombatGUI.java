@@ -17,8 +17,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
+import javax.swing.SwingConstants;
 
 import com.reyzerbit.Feats;
+import com.reyzerbit.fetchDataClasses.PlaySoundBite;
 
 public class CombatGUI{
 	
@@ -33,6 +35,7 @@ public class CombatGUI{
 	
 	//Frame
 	public static JFrame combatGUI = new JFrame();
+	
 	//Buttons
 	public static JButton fight = new JButton("Fight");
 	public static JButton items = new JButton("Items");
@@ -56,7 +59,7 @@ public class CombatGUI{
 	public static long enemyHealthVar = 0;
 	
 	//JLabel
-	public static JLabel enemyHealthLabel = new JLabel(" Enemy HP: " + enemyHealthVar);
+	public static JLabel enemyHealthLabel = new JLabel("Enemy HP: " + enemyHealthVar, SwingConstants.CENTER);
 	
 	
 	//Moving Slider Thread
@@ -129,7 +132,10 @@ public class CombatGUI{
 	    
 	});
 	
-	public static void initCombat(int speedNumber, int enemyHealth, int enemyStrength){
+	public static void initCombat(int speedNumber, int enemyHealth, int enemyStrength) throws IOException{
+		
+		PlaySoundBite.play(System.getProperty("user.home") + Feats.separate + "Documents" + Feats.separate + "SURPG" + 
+				Feats.separate + "RequiredFiles"+ Feats.separate + "audio"+ Feats.separate + "Battle.wav", false);
 		
 		bar = GUIContent.class.getClassLoader().getResourceAsStream("com/reyzerbit/assets/combatBar.png");
 		try {
@@ -306,15 +312,15 @@ public class CombatGUI{
 			
 		}else if(percentage > 25 && percentage <= 40 || percentage < 75 && percentage >= 60){
 			
-			totalDamage = Feats.physicalStrength * 1;
+			totalDamage = ((int) Math.floor(Feats.physicalStrength * .25));
 			
 		}else if(percentage > 40 && percentage <= 48 || percentage < 60 && percentage >= 52){
 			
-			totalDamage = ((int) Math.floor(Feats.physicalStrength * 1.5));
+			totalDamage = ((int) Math.floor(Feats.physicalStrength * .75));
 			
 		}else if(percentage > 48 && percentage < 52){
 			
-			totalDamage = ((int) Math.floor(Feats.physicalStrength * 2));
+			totalDamage = Feats.physicalStrength * 1;
 			
 		}else{
 			

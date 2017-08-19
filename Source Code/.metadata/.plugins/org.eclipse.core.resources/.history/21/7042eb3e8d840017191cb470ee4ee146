@@ -1,0 +1,46 @@
+package com.reyzerbit.guis;
+
+import java.io.File;
+import java.io.IOException;
+
+import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
+import com.jaketherey.openal_java_bundle.ALException;
+import com.jaketherey.openal_java_bundle.OpenAL;
+import com.jaketherey.openal_java_bundle.Source;
+
+public class AlertUpgrade {
+
+	public static void upgrade(String upgrade){
+		
+		ImageIcon iconAlert = new ImageIcon("src/com/reyzerbit/assets/Steven.png");
+		JOptionPane.showMessageDialog(null, "Your " + upgrade + " increased by one point.");
+		JOptionPane.showMessageDialog(null,  "Your " + upgrade + " increased by one point.", "Upgrade", JOptionPane.PLAIN_MESSAGE, iconAlert);
+		//Test OpenAL Audio.
+		
+		OpenAL sound = null;
+		Source audioSource = null;
+		
+		try {
+			sound = new OpenAL();
+		} catch (ALException e1) {
+			e1.printStackTrace();
+		}
+		
+		try {
+			audioSource = sound.createSource(new File("src/com/reyzerbit/assets/Error.wav"));
+		} catch (ALException | IOException | UnsupportedAudioFileException e1) {
+			e1.printStackTrace();
+		}
+		
+		try {
+			audioSource.play();
+		} catch (ALException e1) {
+			e1.printStackTrace();
+		}
+		
+	}
+	
+}

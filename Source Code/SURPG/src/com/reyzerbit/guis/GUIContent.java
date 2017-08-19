@@ -341,7 +341,11 @@ public class GUIContent{
 			
 			public void actionPerformed(ActionEvent e) {
 				
-				Feats.runNextPath(Feats.location);
+				try {
+					Feats.runNextPath(Feats.location);
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
 				
 			}
 			

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.io.InputStream"/>
-<fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="com.reyzerbit.fetchDataClasses.SetNewData"/>
 <fullyQualifiedTypeName name="com.reyzerbit.storyline.PearlBegin"/>
 <fullyQualifiedTypeName name="com.reyzerbit.storyline.Test"/>
@@ -10,7 +8,18 @@
 <fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="javax.swing.JFrame"/>
 <fullyQualifiedTypeName name="com.reyzerbit.guis.CombatGUI"/>
-<fullyQualifiedTypeName name="com.reyzerbit.guis.HealthRectangle"/>
 <fullyQualifiedTypeName name="com.reyzerbit.Feats"/>
 <fullyQualifiedTypeName name="com.reyzerbit.fetchDataClasses.RecentsSystem"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Array"/>
+<fullyQualifiedTypeName name="com.reyzerbit.guis.HealthRectangle"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Field"/>
+<fullyQualifiedTypeName name="com.jaketherey.openal_java_bundle.OpenAL"/>
+<fullyQualifiedTypeName name="com.jaketherey.openal_java_bundle.Source"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="com.reyzerbit.guis.AlertUpgrade"/>
+<fullyQualifiedTypeName name="com.reyzerbit.fetchDataClasses.PlaySoundBite"/>
+<fullyQualifiedTypeName name="javax.swing.SwingConstants"/>
+<fullyQualifiedTypeName name="java.io.OutputStream"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="com.reyzerbit.fetchDataClasses.DownloadRequiredFiles"/>
 </qualifiedTypeNameHistroy>

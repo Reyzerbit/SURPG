@@ -46,7 +46,11 @@ public class PlaySoundBite {
 	
 	public static void close(){
 		
+		System.out.println("Closing sound bite...");
+		
 		sound.close();
+
+		System.out.println("Sound bite closed.");
 		
 	}
 	

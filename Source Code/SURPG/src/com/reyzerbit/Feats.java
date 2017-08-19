@@ -39,6 +39,8 @@ public class Feats {
 	
 	//Separator for Different OS's
 	public static String separate = new String(System.getProperty("file.separator"));
+	public static String requiredFiles = new String(System.getProperty("user.home") + separate + "Documents" + separate + "SURPG" + 
+				separate + "RequiredFiles" + separate);
 	
 	//Location in Story
 	

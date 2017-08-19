@@ -78,6 +78,9 @@ public class ConsoleGUI {
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
+					
+					GUIContent.gui.setVisible(false);
+					
 					consoleGUI.dispose();
 					
 				}else if(lineArray[0].equals("startCombat") && lineArray.length != 4){

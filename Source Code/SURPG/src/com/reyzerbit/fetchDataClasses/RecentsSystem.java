@@ -186,7 +186,7 @@ public class RecentsSystem {
 			//Set download URL for later use.
 			URL download = null;
 			try {
-				download = new URL("http://jacobaccio.github.io/Text_Files/recents.json");
+				download = new URL("https://raw.githubusercontent.com/jacobaccio/SURPG/Version-1.0/Resources/Recents.json");
 			} catch (MalformedURLException e2) {
 				e2.printStackTrace();
 				System.out.println("Failed to set URL for recents.json");

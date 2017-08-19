@@ -14,11 +14,10 @@ public class AlertUpgrade {
 		
 		PlaySoundBite.play(System.getProperty("user.home") + Feats.separate + "Documents" + Feats.separate + "SURPG" + 
 		Feats.separate + "RequiredFiles"+ Feats.separate + "audio"+ Feats.separate + "Upgrade.wav", false);
-		ImageIcon iconAlert = new ImageIcon("src/com/reyzerbit/assets/Steven.png");
+		ImageIcon iconAlert = new ImageIcon(Feats.requiredFiles + "images"+ Feats.separate + "Steven.wav");
 		JOptionPane.showMessageDialog(null,  "Your " + upgrade + " increased by one point.", "Upgrade", JOptionPane.PLAIN_MESSAGE, iconAlert);
-		System.out.println("Closing sound bite...");
+
 		PlaySoundBite.close();
-		System.out.println("Sound bite closed.");
 		
 	}
 	

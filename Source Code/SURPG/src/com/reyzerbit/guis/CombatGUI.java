@@ -5,6 +5,8 @@ import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
@@ -162,7 +164,7 @@ public class CombatGUI{
 		
 		combatGUI.getContentPane().setLayout(null);
 		combatGUI.setVisible(true);
-		combatGUI.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		combatGUI.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		combatGUI.setSize(300, 400);
 		combatGUI.setName("Combat");
 		combatGUI.setTitle("Combat");
@@ -261,6 +263,17 @@ public class CombatGUI{
 					
 		});
 		
+		combatGUI.addWindowListener(new WindowAdapter()
+		{
+		    public void windowClosed(WindowEvent e)
+		    {
+		    	
+		    	PlaySoundBite.close();
+		    	GUIContent.gui.setVisible(true);
+		    	
+		    }
+		});
+		
 		cancel.addActionListener(new ActionListener() {
 
 			@Override			
@@ -277,6 +290,17 @@ public class CombatGUI{
 				combatPanel.setVisible(false);
 				
 				stopSlider = 1;
+				
+			}
+					
+		});
+		
+		flee.addActionListener(new ActionListener() {
+
+			@Override			
+			public void actionPerformed(ActionEvent e) {
+				
+				combatGUI.dispose();
 				
 			}
 					

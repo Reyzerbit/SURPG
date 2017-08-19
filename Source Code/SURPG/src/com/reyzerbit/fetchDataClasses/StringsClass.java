@@ -23,7 +23,7 @@ public class StringsClass {
 		String stringComplete = null;
 		
 		//File location
-		File stringsFile = new File(System.getProperty("user.home") + Feats.separate + "Documents" + Feats.separate + "SURPG" + Feats.separate + "RequiredFiles" + Feats.separate + "StringsFile.json");
+		File stringsFile = new File(Feats.requiredFiles + "StringsFile.json");
 
 		//This declare the download URL for later use.
 		URL download = null;

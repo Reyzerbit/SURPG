@@ -1,0 +1,63 @@
+.root{
+	
+    -fx-font-family: "Crewniverse";
+    -fx-font-size: 10;
+    
+}
+
+#MainBackground{
+	
+	-fx-background-color: #FCC8DF;
+	
+}
+
+.progress-bar{
+	
+	-fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-border-color: transparent;
+    
+	
+}
+ 
+.progress-bar .track{
+	
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-border-color: transparent;
+    
+}
+
+.progress-bar .bar { 
+	
+    -fx-background-insets: 0; 
+    -fx-background-radius: 0;
+    
+}
+
+.green-bar{
+	
+	-fx-accent: green;
+	
+}
+
+.yellow-bar{
+	
+	-fx-accent: yellow;
+	
+}
+
+.red-bar{
+	
+	-fx-accent: red;
+	
+}
+
+#Button{
+	
+    -fx-border-radius: 0;
+    -fx-border-width: 5;
+    -fx-background-color: #FCFBE6;
+    -fx-border-color: #653531;
+    
+}

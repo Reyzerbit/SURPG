@@ -1,7 +1,0 @@
-package com.reyzerbit.guis;
-
-import javax.swing.JPanel;
-
-public class HealthRectangle extends JPanel{
-
-}

@@ -33,4 +33,26 @@ public class DownloadRequiredFiles {
 		
 	}
 
+	public static void downloadImageFile(String fileURL, String name) throws IOException{
+	
+		//Downloading Audio File
+		System.out.println("Downloading image file.");
+	
+		//Set download URL for later use.
+		URL download = new URL(fileURL);
+		File upload = new File(Feats.requiredFiles + "images"+ Feats.separate + name);
+	
+		if(upload.exists()){
+		
+			System.out.println("Image file already exists.");
+		
+		}else{
+	
+			//Try to download said file
+			FileUtils.copyURLToFile(download, upload, 30000, 30000);
+	
+		}
+	
+	}
+
 }

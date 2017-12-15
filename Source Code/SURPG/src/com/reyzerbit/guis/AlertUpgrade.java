@@ -14,7 +14,7 @@ public class AlertUpgrade {
 		
 		PlaySoundBite.play(System.getProperty("user.home") + Feats.separate + "Documents" + Feats.separate + "SURPG" + 
 		Feats.separate + "RequiredFiles"+ Feats.separate + "audio"+ Feats.separate + "Upgrade.wav", false);
-		ImageIcon iconAlert = new ImageIcon(Feats.requiredFiles + "images"+ Feats.separate + "Steven.wav");
+		ImageIcon iconAlert = new ImageIcon(Feats.requiredFiles + "images"+ Feats.separate + "Steven.png");
 		JOptionPane.showMessageDialog(null,  "Your " + upgrade + " increased by one point.", "Upgrade", JOptionPane.PLAIN_MESSAGE, iconAlert);
 
 		PlaySoundBite.close();

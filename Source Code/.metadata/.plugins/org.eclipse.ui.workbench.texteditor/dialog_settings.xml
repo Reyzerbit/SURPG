@@ -1,25 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item value="false" key="isRegEx"/>
-		<item value="System.getProperty(&quot;user.home&quot;) + Feats.separate + &quot;Documents&quot; + Feats.separate + &quot;SURPG&quot;)" key="selection"/>
+		<item value="true" key="isRegEx"/>
+		<item value="; " key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="exist"/>
-			<item value=".exists"/>
-			<item value="filePath"/>
-			<item value="characterPic"/>
-			<item value="statsButton"/>
+			<item value="&quot;: this\.stats"/>
+			<item value="case &quot;"/>
+			<item value="refresh"/>
+			<item value="SaveData\.player"/>
+			<item value="SURPG_Main"/>
+			<item value="SaveData"/>
+			<item value="fx"/>
+			<item value="accent"/>
+			<item value="style"/>
+			<item value="initStyle"/>
+			<item value="HealthBar"/>
+			<item value="public static Label "/>
+			<item value=" = new Label"/>
+			<item value=" = setVal"/>
+			<item value="Pane"/>
 		</list>
 		<list key="replacehistory">
+			<item value="; "/>
+			<item value="int "/>
+			<item value="Toolbox\.currentPlayer"/>
+			<item value="SaveData"/>
+			<item value="SURPG_Main"/>
+			<item value=""/>
+			<item value=".setText"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="290" key="DIALOG_WIDTH"/>
-		<item value="1|.SF NS Text|11.0|0|COCOA|1|.SFNSText" key="DIALOG_FONT_NAME"/>
+		<item value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont" key="DIALOG_FONT_NAME"/>
 		<item value="409" key="DIALOG_HEIGHT"/>
 		<item value="903" key="DIALOG_X_ORIGIN"/>
 		<item value="139" key="DIALOG_Y_ORIGIN"/>

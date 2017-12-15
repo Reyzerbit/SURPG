@@ -19,10 +19,12 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 
 import com.reyzerbit.Feats;
@@ -77,10 +79,16 @@ public class GUIContent{
 	static BufferedImage background = null;
 	static BufferedImage characterPic = null;
 	
+	//Items List
+	public static String[] items = {"Items", "____________"};
+	public static JList<String> itemList = new JList<String>(items);
+	public static JScrollPane itemsScroll = new JScrollPane(itemList);
+	
 	//Buttons
 	static JButton enter = new JButton("Enter");
 	static JButton statsButton = new JButton("Stats");
 	static JButton characterButton = new JButton("Character");
+	static JButton itemsButton = new JButton("Items");
 	
 	static JPanel characterObject = new JPanel();
 	
@@ -105,11 +113,12 @@ public class GUIContent{
 		//Character Shape
 		in2 = GUIContent.class.getClassLoader().getResourceAsStream("com/reyzerbit/assets/CharacterPic.png");
 		
-		background = ImageIO.read(in);
-		
 		//Remove comments once Lauryn draws the picture.
 		
 		/*
+		
+		background = ImageIO.read(in);
+		
 		@SuppressWarnings("serial")
 		JPanel backPic = new JPanel() {
 	        @Override
@@ -150,6 +159,14 @@ public class GUIContent{
 		hover.setLineWrap(true);
 		hover.setEditable(false);
 		
+		//JList Constraints
+		itemList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+		itemList.setLayoutOrientation(JList.VERTICAL_WRAP);
+		itemList.setVisibleRowCount(-1);
+		itemList.setDragEnabled(false);
+		itemList.setFixedCellWidth(74);
+		itemList.setSelectionBackground(Color.LIGHT_GRAY);
+		
 		//Input Window Constraints
 		inputWindow.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1, true));
 		
@@ -168,16 +185,14 @@ public class GUIContent{
 		enter.setBackground(Color.LIGHT_GRAY);
 		
 		//Stats Button Constraints
-		statsButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
-		statsButton.setOpaque(true);
 		Color characterColor = new Color(239, 156, 21);
-		statsButton.setBackground(characterColor);
+		setVisualsComponent(statsButton, Color.BLACK, 2, characterColor, true);
 		
 		//Stats Button Constraints
-		characterButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
-		characterButton.setOpaque(true);
 		Color statsColor = new Color(34, 229, 196);
-		characterButton.setBackground(statsColor);
+		setVisualsComponent(characterButton, Color.BLACK, 2, statsColor, true);
+		
+		setVisualsComponent(itemsButton, Color.BLACK, 2, Color.WHITE, true);
 		
 		//Character Pic Constraints
 		characterPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2, true));
@@ -206,7 +221,8 @@ public class GUIContent{
 		setVisuals(precisionPoints, Color.BLACK, 2, new Color(255, 239, 140), true);
 		setVisuals(athleticsPoints, Color.BLACK, 2, new Color(255, 239, 140), true);
 		setVisuals(balancePoints, Color.BLACK, 2, new Color(255, 239, 140), true);
-		setVisualsPanel(healthBar, Color.BLACK, 2, Color.WHITE, true);
+		setVisualsComponent(healthBar, Color.BLACK, 2, Color.WHITE, true);
+		setVisualsComponent(itemsScroll, Color.BLACK, 1, Color.WHITE, true);
 		
 		//Add Label to Health Bar
 		healthBar.add(healthPointLabel);
@@ -232,6 +248,7 @@ public class GUIContent{
 		addComponentFrame(stats, precisionPoints, 90, 200, 65, 30);
 		addComponentFrame(stats, athleticsPoints, 165, 200, 65, 30);
 		addComponentFrame(stats, balancePoints, 240, 200, 65, 30);
+		addComponentFrame(stats, itemsScroll, 2, 2, 76, 246);
 		
 		addComponentFrame(stats, characterPanel, 30, 20, 80, 150);
 		
@@ -243,7 +260,13 @@ public class GUIContent{
 		addComponent(gui, hover, 340, 360, 320, 100);
 		addComponent(gui, statsButton, 680, 80, 100, 30);
 		addComponent(gui, characterButton, 680, 130, 100, 30);
+		addComponent(gui, itemsButton, 680, 180, 100, 30);
 		
+		//Item List Visibility
+		itemsScroll.setVisible(false);
+		
+		//This should help with the images not showing up all the way sometimes...
+		gui.setVisible(true);
 		
 		//Request Focus for Input Window
 		inputWindow.requestFocusInWindow();
@@ -302,6 +325,9 @@ public class GUIContent{
 				balancePoints.setVisible(true);
 								
 				characterPanel.setVisible(false);
+				
+				//Items Items
+				itemsScroll.setVisible(false);
 							
 			}
 							
@@ -329,6 +355,42 @@ public class GUIContent{
 					balancePoints.setVisible(false);
 							
 					characterPanel.setVisible(true);
+					
+					//Items Items
+					itemsScroll.setVisible(false);
+									
+				}
+									
+		});
+		
+		//Action Listener for Items
+		
+		itemsButton.addActionListener(new ActionListener() {
+
+			@Override
+									
+				public void actionPerformed(ActionEvent e) {
+								
+					//Stats Items
+					healthBar.setVisible(false);
+					strengthPoints.setVisible(false);
+					intelPoints.setVisible(false);
+					agilPoints.setVisible(false);
+					physicalPoints.setVisible(false);
+					willPoints.setVisible(false);
+					endurancePoints.setVisible(false);
+					communicationPoints.setVisible(false);
+					problemSolvePoints.setVisible(false);
+					insightPoints.setVisible(false);
+					precisionPoints.setVisible(false);
+					athleticsPoints.setVisible(false);
+					balancePoints.setVisible(false);
+					
+					//Character Items
+					characterPanel.setVisible(false);
+					
+					//Items Items
+					itemsScroll.setVisible(true);
 									
 				}
 									
@@ -399,7 +461,7 @@ public class GUIContent{
 		
 	}
 	
-	private static void setVisualsPanel(JPanel comp, Color border, int borderWidth, Color background, Boolean visible){
+	private static void setVisualsComponent(JComponent comp, Color border, int borderWidth, Color background, Boolean visible){
 		
 		comp.setBorder(BorderFactory.createLineBorder(border, borderWidth, true));
 		comp.setOpaque(true);

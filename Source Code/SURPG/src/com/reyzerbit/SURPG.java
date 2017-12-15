@@ -27,7 +27,8 @@ public class SURPG {
         DownloadRequiredFiles.downloadAudioFile("https://raw.githubusercontent.com/jacobaccio/SURPG/Version-1.0/Resources/audio/Error.wav", "Error.wav");
         DownloadRequiredFiles.downloadAudioFile("https://raw.githubusercontent.com/jacobaccio/SURPG/Version-1.0/Resources/audio/Upgrade.wav", "Upgrade.wav");
         DownloadRequiredFiles.downloadAudioFile("https://raw.githubusercontent.com/jacobaccio/SURPG/Version-1.0/Resources/audio/Battle.wav", "Battle.wav");
-        
+        DownloadRequiredFiles.downloadImageFile("https://raw.githubusercontent.com/jacobaccio/SURPG/Version-1.0/Resources/images/Steven.png", "Steven.png");
+
 		//Initialize GUI
 		
 		try {

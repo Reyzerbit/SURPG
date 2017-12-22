@@ -1,18 +1,24 @@
 package com.jaketherey.SURPG.GUI;
 
+import java.util.logging.Level;
+
 import com.jaketherey.SURPG.SURPG_Core;
 import com.jaketherey.SURPG.GUI.Extra_GUI.Health_Bar;
 import com.jaketherey.SURPG.IO.Storyline;
 
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Border;
@@ -29,101 +35,98 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class GUI_Main {
 	
 	//STAGE
-	public static Stage stage = new Stage();
+	Stage stage = new Stage();
 	
 	//PANES
-	public static Pane infoPane = new Pane();
-	public static Pane centerScene = new Pane();
-	public static Pane centTopScene = new Pane();
-	public static Pane hoverScene = new Pane();
-	public static Pane leftScene = new Pane();
-	public static Pane rightScene = new Pane();
+	Pane infoPane = new Pane();
+	Pane centerScene = new Pane();
+	Pane centTopScene = new Pane();
+	Pane hoverScene = new Pane();
+	Pane leftScene = new Pane();
+	Pane rightScene = new Pane();
 	
 	//LABELS
 	
 	//Health Bar
-	public static StackPane healthCont = new StackPane();
-	public static Health_Bar healthBar = new Health_Bar(SURPG_Core.CURRENT_PLAYER);
+	StackPane healthCont = new StackPane();
+	Health_Bar healthBar = new Health_Bar(SURPG_Core.CURRENT_PLAYER);
 	
 	//Stat Labels
-	public static Label healthPointLabel = new Label();
-	public static Label strengthPoints = new Label("Str: " + SURPG_Core.CURRENT_PLAYER.getVal("strength"));
-	public static Label physicalPoints = new Label("PS: " + SURPG_Core.CURRENT_PLAYER.getVal("physStrength"));
-	public static Label willPoints = new Label("Will: " + SURPG_Core.CURRENT_PLAYER.getVal("will"));
-	public static Label endurancePoints = new Label("End: " + SURPG_Core.CURRENT_PLAYER.getVal("endurance"));
-	public static Label intelPoints = new Label("Int: " + SURPG_Core.CURRENT_PLAYER.getVal("intelligence"));
-	public static Label communicationPoints = new Label("Com: " + SURPG_Core.CURRENT_PLAYER.getVal("communication"));
-	public static Label problemSolvePoints = new Label("PrS: " + SURPG_Core.CURRENT_PLAYER.getVal("probSolve"));
-	public static Label insightPoints = new Label("Ins: " + SURPG_Core.CURRENT_PLAYER.getVal("insight"));
-	public static Label agilPoints = new Label("Agil: " + SURPG_Core.CURRENT_PLAYER.getVal("agility"));
-	public static Label precisionPoints = new Label("Prec: " + SURPG_Core.CURRENT_PLAYER.getVal("precission"));
-	public static Label athleticsPoints = new Label("Ath: " + SURPG_Core.CURRENT_PLAYER.getVal("athletics"));
-	public static Label balancePoints = new Label("Bal: " + SURPG_Core.CURRENT_PLAYER.getVal("balance"));
+	Label healthPointLabel = new Label();
+	Label strengthPoints = new Label("Str: " + SURPG_Core.CURRENT_PLAYER.getStrength());
+	Label physicalPoints = new Label("PS: " + SURPG_Core.CURRENT_PLAYER.getPhysStrength());
+	Label willPoints = new Label("Will: " + SURPG_Core.CURRENT_PLAYER.getWill());
+	Label endurancePoints = new Label("End: " + SURPG_Core.CURRENT_PLAYER.getEndurance());
+	Label intelPoints = new Label("Int: " + SURPG_Core.CURRENT_PLAYER.getIntelligence());
+	Label communicationPoints = new Label("Com: " + SURPG_Core.CURRENT_PLAYER.getCommunication());
+	Label problemSolvePoints = new Label("PrS: " + SURPG_Core.CURRENT_PLAYER.getProbSolve());
+	Label insightPoints = new Label("Ins: " + SURPG_Core.CURRENT_PLAYER.getInsight());
+	Label agilPoints = new Label("Agil: " + SURPG_Core.CURRENT_PLAYER.getAgility());
+	Label precisionPoints = new Label("Prec: " + SURPG_Core.CURRENT_PLAYER.getPrecission());
+	Label athleticsPoints = new Label("Ath: " + SURPG_Core.CURRENT_PLAYER.getAthletics());
+	Label balancePoints = new Label("Bal: " + SURPG_Core.CURRENT_PLAYER.getBalance());
 	
 	//Character Panel
-	public static Label characterPanel = new Label();
+	Label characterPanel = new Label();
 	
 	//VALUES
-	private static Insets inset = new Insets(20);
-	private static Border border = new Border(new BorderStroke(Paint.valueOf("#653531"), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(5)));
+	private Insets inset = new Insets(20);
+	private Border border = new Border(new BorderStroke(Paint.valueOf("#653531"), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(5)));
 	
 	//TEXT AREAS
-	public static TextArea hover = new TextArea("Hover over a feature in the box above for a description about it's purpose.");
-	public static TextArea outputWindow = new TextArea();
+	TextArea hover = new TextArea("Hover over a feature in the box above for a description about it's purpose.");
+	TextArea outputWindow = new TextArea();
 	
 	//TEXT FIELDS
-	public static TextField inputWindow = new TextField();
+	TextField inputWindow = new TextField();
 	
 	//BUTTONS
-	public static Button enter = new Button("Enter");
-	public static Button statsButton = new Button("Stats");
-	public static Button characterButton = new Button("Character");
-	public static Button itemsButton = new Button("Items");
+	Button enter = new Button("Enter");
+	Button statsButton = new Button("Stats");
+	Button characterButton = new Button("Character");
+	Button itemsButton = new Button("Items");
 	
 	//IMAGES
-	public static Image characterImage = new Image(GUI_Main.class.getResourceAsStream("/resources/images/CharacterPic.png"));
+	Image characterImage = new Image(GUI_Main.class.getResourceAsStream("/resources/images/CharacterPic.png"));
 	
 	//LAYOUTS
-	public static BorderPane totalLay = new BorderPane();
-	private static VBox rightLay = new VBox();
-	private static VBox midLay = new VBox();
-	private static HBox topCenter = new HBox();
-	private static HBox mainLay = new HBox();
-	private static GridPane statsLayout = new GridPane();
+	BorderPane totalLay = new BorderPane();
+	private VBox rightLay = new VBox();
+	private VBox midLay = new VBox();
+	private HBox topCenter = new HBox();
+	private HBox mainLay = new HBox();
+	private GridPane statsLayout = new GridPane();
 	
 	//GridPane Column Constraints
-	public static ColumnConstraints col1 = new ColumnConstraints();
-	public static ColumnConstraints col2 = new ColumnConstraints();
-	public static ColumnConstraints col3 = new ColumnConstraints();
-	public static ColumnConstraints col4 = new ColumnConstraints();
+	ColumnConstraints col1 = new ColumnConstraints();
+	ColumnConstraints col2 = new ColumnConstraints();
+	ColumnConstraints col3 = new ColumnConstraints();
+	ColumnConstraints col4 = new ColumnConstraints();
 	
 	//Background Thing
-	public static Background backing = new Background(new BackgroundFill(Paint.valueOf("red"), CornerRadii.EMPTY, new Insets(0)));
+	Background backing = new Background(new BackgroundFill(Paint.valueOf("red"), CornerRadii.EMPTY, new Insets(0)));
 	
 	//SCENES
-	public static Scene mainScene = new Scene(totalLay, 800, 550);
+	Scene mainScene = new Scene(totalLay, 800, 550);
 	
-	public static void initMainGUI() {
+	public GUI_Main() {
+		
+		SURPG_Core.logger.log(Level.INFO, "Initiating main GUI...");
 		
 		//Stage Constraints
 		stage.setMinHeight(550);
 		stage.setMinWidth(800);
 		stage.setTitle("SURPG");
 		stage.setScene(mainScene);
-		stage.show();
 		
 		//Scene Constraints
 		mainScene.getStylesheets().add("resources/styling/SURPG_CSS.css");
-		
-		//Font
-		Font.loadFont(GUI_Main.class.getResourceAsStream("/resources/styling/crewniverse_font.ttf"), 14);
 		
 		//Full Layout Constraints
 		totalLay.setCenter(mainLay);
@@ -248,8 +251,6 @@ public class GUI_Main {
 		fitToNode(rightScene, rightLay);
 		StackPane.setAlignment(healthBar, Pos.CENTER_LEFT);
 		topCenter.prefWidthProperty().bind(centTopScene.widthProperty());
-
-		//Part of Testing
 			
 		//Request Focus for Input Window
 		inputWindow.requestFocus();
@@ -316,9 +317,26 @@ public class GUI_Main {
 		
 		});
 		
+		//Add Listener for hitting enter key while typing.
+		inputWindow.setOnKeyPressed(new EventHandler<KeyEvent>() {
+			 
+		    @Override
+		    public void handle(KeyEvent event) {
+		        if(event.getCode().equals(KeyCode.ENTER)) {
+		        	
+		        		Storyline.initRun(inputWindow.getText());
+		        		
+		        }
+		    }
+		    
+		});
+		
+		stage.show();
+		SURPG_Core.logger.log(Level.INFO, "Main GUI initiated.");
+		
 	}
 
-	private static void addHoverListener(StackPane pane, String text1) {
+	private void addHoverListener(StackPane pane, String text1) {
 		
 		pane.setOnMouseEntered(event -> hover.setText(text1));
 		pane.setOnMouseExited(event -> hover.setText("Hover over a feature in the box above for a description about it's purpose."));
@@ -326,14 +344,14 @@ public class GUI_Main {
 	}
 
 	//Method to add hover event
-	private static void addHoverListener(Label label, String text1){
+	private void addHoverListener(Label label, String text1){
 		
 		label.setOnMouseEntered(event -> hover.setText(text1));
 		label.setOnMouseExited(event -> hover.setText("Hover over a feature in the box above for a description about it's purpose."));
 		
 	}
 	
-	private static void setSize(Region node, int width, int height) {
+	private void setSize(Region node, int width, int height) {
 		
 		node.setPrefSize(width, height);
 		node.setMinSize(width-40, height);
@@ -341,14 +359,14 @@ public class GUI_Main {
 		
 	}
 	
-	private static void fitToNode(Region node1, Region node2) {
+	private void fitToNode(Region node1, Region node2) {
 		
 		node2.prefWidthProperty().bind(node1.widthProperty());
 		node2.prefHeightProperty().bind(node1.heightProperty());
 		
 	}
 	
-	private static void setStatBlock(Label label, String hexColor, int columnIndex, int rowIndex) {
+	private void setStatBlock(Label label, String hexColor, int columnIndex, int rowIndex) {
 
 		label.setStyle("-fx-background-color: " + hexColor);
 		
@@ -362,7 +380,7 @@ public class GUI_Main {
 		
 	}
 	
-	private static void buttonCons(Button btn) {
+	private void buttonCons(Button btn) {
 		
 		btn.setMinWidth(80);
 		btn.setMinHeight(30);
@@ -370,29 +388,59 @@ public class GUI_Main {
 		btn.prefWidthProperty().bind(rightLay.widthProperty());
 		
 		Platform.runLater(() -> {
-		    btn.setStyle("-fx-font-size: " + btn.getWidth()/10);
+		    btn.setStyle("-fx-font-size: " + btn.getWidth()/11);
 		});
 		
 		mainScene.widthProperty().addListener( event -> {
-			btn.setStyle("-fx-font-size: " + btn.getWidth()/10);
+			btn.setStyle("-fx-font-size: " + btn.getWidth()/11);
         });
 		
 	}
 	
-	public static void reloadLabels() {
+	public void reloadLabels() {
 		
-		strengthPoints.setText("Str: " + SURPG_Core.CURRENT_PLAYER.getVal("strength"));
-		physicalPoints.setText("PS: " + SURPG_Core.CURRENT_PLAYER.getVal("physStrength"));
-		willPoints.setText("Will: " + SURPG_Core.CURRENT_PLAYER.getVal("will"));
-		endurancePoints.setText("End: " + SURPG_Core.CURRENT_PLAYER.getVal("endurance"));
-		intelPoints.setText("Int: " + SURPG_Core.CURRENT_PLAYER.getVal("intelligence"));
-		communicationPoints.setText("Com: " + SURPG_Core.CURRENT_PLAYER.getVal("communication"));
-		problemSolvePoints.setText("PrS: " + SURPG_Core.CURRENT_PLAYER.getVal("probSolve"));
-		insightPoints.setText("Ins: " + SURPG_Core.CURRENT_PLAYER.getVal("insight"));
-		agilPoints.setText("Agil: " + SURPG_Core.CURRENT_PLAYER.getVal("agility"));
-		precisionPoints.setText("Prec: " + SURPG_Core.CURRENT_PLAYER.getVal("precission"));
-		athleticsPoints.setText("Ath: " + SURPG_Core.CURRENT_PLAYER.getVal("athletics"));
-		balancePoints.setText("Bal: " + SURPG_Core.CURRENT_PLAYER.getVal("balance"));
+		strengthPoints.setText("Str: " + SURPG_Core.CURRENT_PLAYER.getStrength());
+		physicalPoints.setText("PS: " + SURPG_Core.CURRENT_PLAYER.getPhysStrength());
+		willPoints.setText("Will: " + SURPG_Core.CURRENT_PLAYER.getWill());
+		endurancePoints.setText("End: " + SURPG_Core.CURRENT_PLAYER.getEndurance());
+		intelPoints.setText("Int: " + SURPG_Core.CURRENT_PLAYER.getIntelligence());
+		communicationPoints.setText("Com: " + SURPG_Core.CURRENT_PLAYER.getCommunication());
+		problemSolvePoints.setText("PrS: " + SURPG_Core.CURRENT_PLAYER.getProbSolve());
+		insightPoints.setText("Ins: " + SURPG_Core.CURRENT_PLAYER.getInsight());
+		agilPoints.setText("Agil: " + SURPG_Core.CURRENT_PLAYER.getAgility());
+		precisionPoints.setText("Prec: " + SURPG_Core.CURRENT_PLAYER.getPrecission());
+		athleticsPoints.setText("Ath: " + SURPG_Core.CURRENT_PLAYER.getAthletics());
+		balancePoints.setText("Bal: " + SURPG_Core.CURRENT_PLAYER.getBalance());
+		
+	}
+	
+	public void addTopMenu(MenuBar menuBar) {
+		
+		totalLay.setTop(menuBar);
+		
+	}
+	
+	public void append(String string) {
+		
+		outputWindow.appendText(string);
+		
+	}
+	
+	public void clearInput() {
+		
+		inputWindow.setText("");
+		
+	}
+	
+	public void close() {
+		
+		stage.close();
+		
+	}
+	
+	public void show() {
+		
+		stage.show();
 		
 	}
 

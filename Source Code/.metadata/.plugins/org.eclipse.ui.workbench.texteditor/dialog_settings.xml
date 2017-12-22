@@ -2,35 +2,36 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="isRegEx"/>
-		<item value="; " key="selection"/>
+		<item value="SURPG_Core.mainGUI.append" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="&quot;: this\.stats"/>
-			<item value="case &quot;"/>
-			<item value="refresh"/>
-			<item value="SaveData\.player"/>
-			<item value="SURPG_Main"/>
-			<item value="SaveData"/>
-			<item value="fx"/>
-			<item value="accent"/>
+			<item value="GUI_Main\.outputWindow\.appendText"/>
+			<item value="static "/>
+			<item value=" static "/>
+			<item value="public static "/>
+			<item value="this."/>
+			<item value="addComponent"/>
+			<item value=" Color.BLACK, 2, Color.LIGHT_GRAY, false"/>
+			<item value=", Color\.BLACK, 2, Color\.LIGHT_GRAY, true\)"/>
+			<item value="runError"/>
 			<item value="style"/>
 			<item value="initStyle"/>
-			<item value="HealthBar"/>
-			<item value="public static Label "/>
-			<item value=" = new Label"/>
-			<item value=" = setVal"/>
-			<item value="Pane"/>
+			<item value="stagestyle"/>
+			<item value="stop"/>
+			<item value="&quot;"/>
+			<item value="&quot;: this\.stats"/>
 		</list>
 		<list key="replacehistory">
+			<item value="SURPG_Core\.mainGUI\.append"/>
+			<item value=""/>
 			<item value="; "/>
 			<item value="int "/>
 			<item value="Toolbox\.currentPlayer"/>
 			<item value="SaveData"/>
 			<item value="SURPG_Main"/>
-			<item value=""/>
 			<item value=".setText"/>
 		</list>
 	</section>
@@ -38,7 +39,7 @@
 		<item value="290" key="DIALOG_WIDTH"/>
 		<item value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont" key="DIALOG_FONT_NAME"/>
 		<item value="409" key="DIALOG_HEIGHT"/>
-		<item value="903" key="DIALOG_X_ORIGIN"/>
-		<item value="139" key="DIALOG_Y_ORIGIN"/>
+		<item value="1081" key="DIALOG_X_ORIGIN"/>
+		<item value="166" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

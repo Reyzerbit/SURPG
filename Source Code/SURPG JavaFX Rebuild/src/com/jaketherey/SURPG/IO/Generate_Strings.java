@@ -1,7 +1,6 @@
 package com.jaketherey.SURPG.IO;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -9,9 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import com.jaketherey.SURPG.SURPG_Core;
-import com.jaketherey.SURPG.Game_Objects.Location_Chunk;
+import com.jaketherey.SURPG.Game_Objects.Save_Objects.Answer_Packet;
+import com.jaketherey.SURPG.Game_Objects.Save_Objects.Answer_Runs;
+import com.jaketherey.SURPG.Game_Objects.Save_Objects.Location_Chunk;
 
+//Only for generating the strings serialized file, no in-game purpose.
 public class Generate_Strings {
 
 	public static void main(String[] args){
@@ -20,66 +21,79 @@ public class Generate_Strings {
 		FileOutputStream fos = null;
 		
 		List<Location_Chunk> chunkList = new ArrayList<Location_Chunk>();
+		List<Answer_Packet> answerList = new ArrayList<Answer_Packet>();
 		Location_Chunk[] chunkArray;
 		
 		String start;
 		String attempt;
 		String help;
-		String[] answers;
+		String[] answer_bits;
+		String[] packetBits;
+		List<Answer_Runs> runList;
 		
-		boolean loop = true;
-		
-		Scanner in = new Scanner(System.in);
-		
+		Scanner in = null;
 		try {
-			fos = new FileOutputStream(new File(SURPG_Core.SURPG_LOCATION));
-		} catch (FileNotFoundException e1) {
-			e1.printStackTrace();
-		}
-		try {
+			in = new Scanner(new File(System.getProperty("user.home") + System.getProperty("file.separator") + "Documents"
+				 + System.getProperty("file.separator") + "SURPGWork" + System.getProperty("file.separator") + "DataStorage.txt"));
+			fos = new FileOutputStream(new File(System.getProperty("user.home") + System.getProperty("file.separator") + "Documents"
+					 + System.getProperty("file.separator") + "SURPGWork" + System.getProperty("file.separator") + "Storylines.ser"));
 			oos = new ObjectOutputStream(fos);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		while(loop) {
+		while(in.hasNextLine()) {
 			
-			System.out.println("Input a valid start string.");
+			start = null;
+			attempt = null;
+			attempt = null;
+			help = null;
+			answer_bits = null;
+			packetBits = null;
+			runList = null;
+			answerList = null;
+			answerList = new ArrayList<Answer_Packet>();
+			
 			start = in.nextLine();
 			
-			System.out.println("Input a valid attempt string.");
 			attempt = in.nextLine();
 			
-			System.out.println("Input a valid help string.");
 			help = in.nextLine();
 			
-			System.out.println("Input valid answer strings, seperated by \\|.");
-			answers = in.nextLine().split("\\|");
-
-
-			chunkList.add(new Location_Chunk(start, attempt, help, answers));
+			answer_bits = in.nextLine().split("\\|");
 			
-			while(true) {
+			//0 is answer, 1 is destination, 2 is method count, 3-4 and so on is method and value.
+			
+			for(int i = 0; i < answer_bits.length; i++) {
 				
-				System.out.println("Would you like to enter another string? Enter y to do so. Enter n to quit.");
-				String loop1 = in.nextLine();
+				packetBits = answer_bits[i].split("-");
+				runList = new ArrayList<Answer_Runs>();
 				
-				if(loop1.equalsIgnoreCase("y")) {
+				for(int x = 0; x < Integer.parseInt(packetBits[2]); x += 2) {
 					
-					break;
+					try {
+						runList.add(new Answer_Runs(packetBits[3+x], Integer.parseInt(packetBits[4+x])));
+					} catch (NumberFormatException | SecurityException | NullPointerException e) {
+						e.printStackTrace();
+					}
 					
-				}else if(loop1.equalsIgnoreCase("n")) {
+				}
+				
+				try{
 					
-					loop = false;
-					break;
+					answerList.add(new Answer_Packet(packetBits[0], Integer.parseInt(packetBits[1]), 
+							
+							Integer.parseInt(packetBits[2]), runList.toArray(new Answer_Runs[runList.size()])));
 					
-				}else {
+				}catch(IndexOutOfBoundsException | NullPointerException | SecurityException e) {
 					
-					System.out.println("Please input a valid option.");
+					answerList.add(new Answer_Packet(packetBits[0], Integer.parseInt(packetBits[1]), 0, new Answer_Runs[0]));
 					
 				}
 				
 			}
+
+			chunkList.add(new Location_Chunk(start, attempt, help, answerList.toArray(new Answer_Packet[answerList.size()])));
 
 		}
 		
@@ -87,17 +101,8 @@ public class Generate_Strings {
 		
 		try {
 			oos.writeObject(chunkArray);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		in.close();
-		try {
+			in.close();
 			oos.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		try {
 			fos.close();
 		} catch (IOException e) {
 			e.printStackTrace();

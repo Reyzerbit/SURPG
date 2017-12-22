@@ -1,8 +1,9 @@
 package com.jaketherey.SURPG.GUI.Extra_GUI;
 
+import java.util.logging.Level;
+
 import com.jaketherey.SURPG.SURPG_Core;
 import com.jaketherey.SURPG.GUI.GUI_Console;
-import com.jaketherey.SURPG.GUI.GUI_Main;
 import com.jaketherey.SURPG.IO.Saves_Handler;
 
 import de.codecentric.centerdevice.MenuToolkit;
@@ -19,13 +20,19 @@ public class Menu_Control {
 	public static Menu menuTools;
 	public static MenuItem save;
 	
+	public static GUI_Console console;
+	
 	public static void initMenus() {
+		
+		SURPG_Core.logger.log(Level.INFO, "Initiating menues...");
 		
 		if(SURPG_Core.isMac()) {
 			macMenus(genMenuBar());
 		}else {
 			mainMenus(genMenuBar());
 		}
+		
+		SURPG_Core.logger.log(Level.INFO, "Menues initiated.");
 		
 	}
 	
@@ -48,10 +55,10 @@ public class Menu_Control {
 		
 		//Developer Menu
 		Menu developerMenu = new Menu("Developer");
-		MenuItem console = new MenuItem("Console");
+		MenuItem consoleMenu = new MenuItem("Console");
 		
 		fileMenu.getItems().add(save);
-		developerMenu.getItems().add(console);
+		developerMenu.getItems().add(consoleMenu);
 		appMenu.getItems().addAll(about, new SeparatorMenuItem(), prefs, new SeparatorMenuItem(), hide, hideAll, show, 
 				new SeparatorMenuItem(), quit);
 		
@@ -59,8 +66,9 @@ public class Menu_Control {
 			Saves_Handler.saveData();
 		});
 		
-		console.setOnAction(e -> {
-			GUI_Console.init();
+		consoleMenu.setOnAction(e -> {
+			console = new GUI_Console();
+			SURPG_Core.MAIN_GUI.close();
 		});
 		
 		menuBar.getMenus().addAll(appMenu, fileMenu, developerMenu);
@@ -79,7 +87,7 @@ public class Menu_Control {
 	
 	private static void mainMenus(MenuBar menuBar) {
 		
-		GUI_Main.totalLay.setTop(menuBar);
+		SURPG_Core.MAIN_GUI.addTopMenu(menuBar);
 		
 	}
 

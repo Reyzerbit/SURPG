@@ -1,5 +1,7 @@
 package com.jaketherey.SURPG;
 
+import java.util.logging.Level;
+
 import com.jaketherey.SURPG.GUI.GUI_Main;
 import com.jaketherey.SURPG.GUI.Extra_GUI.Menu_Control;
 import com.jaketherey.SURPG.GUI.Extra_GUI.Opener_Icon;
@@ -11,13 +13,25 @@ import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.EventHandler;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class SURPG_Launcher extends Application{
 
 	//Launch Application
 	public static void main(String[] args) {
+		
+		//Init Logger
+		SURPG_Core.initLogger();
+		
+		//Init Font
+		SURPG_Core.logger.log(Level.INFO, "Loading font...");
+		Font.loadFont(GUI_Main.class.getResourceAsStream("/resources/styling/crewniverse_font.ttf"), 14);
+		SURPG_Core.logger.log(Level.INFO, "Font loaded.");
+		
+		SURPG_Core.logger.log(Level.INFO, "Launching game.");
 		launch(args);
+		
 	}
 
 	//Start Method
@@ -50,15 +64,22 @@ public class SURPG_Launcher extends Application{
 		
 	}
 	
+	@Override
+	public void stop() {
+		
+		SURPG_Core.logger.log(Level.INFO, "Closing game...");
+		
+	}
+	
 	//Launch Main Game
 	public static void initSURPG() {
+		
+		//Init GUI
+		SURPG_Core.MAIN_GUI = new GUI_Main();
 			
 		//Begin Story Reader
 		Storyline.initReader();
 		Storyline.initRun("");
-			
-		//Init GUI
-		GUI_Main.initMainGUI();
 
 		//Menu Control
 		Platform.runLater(() -> {

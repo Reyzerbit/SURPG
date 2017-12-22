@@ -1,17 +1,34 @@
-.root{
+.root {
 	
     -fx-font-family: "Crewniverse";
     -fx-font-size: 10;
     
 }
 
-#MainBackground{
+#MainBackground {
 	
 	-fx-background-color: #FCC8DF;
+    -fx-border-radius: 5;
 	
 }
 
-.progress-bar{
+#CombatBackground {
+	
+	-fx-background-color: #FFFFFFFF;
+    -fx-border-radius: 10;
+    -fx-border-color: #653531;
+    -fx-border-width: 5;
+    -fx-background-radius: 12;
+	
+}
+
+#TransparentBackground {
+	
+	-fx-background-color: #00000000;
+	
+}
+
+.progress-bar {
 	
 	-fx-background-color: transparent;
     -fx-background-insets: 0;
@@ -20,7 +37,7 @@
 	
 }
  
-.progress-bar .track{
+.progress-bar .track {
 	
     -fx-background-color: transparent;
     -fx-background-insets: 0;
@@ -35,27 +52,62 @@
     
 }
 
-.green-bar{
+.green-bar {
 	
 	-fx-accent: green;
 	
 }
 
-.yellow-bar{
+.yellow-bar {
 	
 	-fx-accent: yellow;
 	
 }
 
-.red-bar{
+.red-bar {
 	
 	-fx-accent: red;
 	
 }
 
-#Button{
+.list-view {
 	
-    -fx-border-radius: 0;
+	-fx-faint-focus-color: #653531;
+    -fx-focus-color: #653531;
+	
+}
+
+.list-view .list-cell:filled:selected:even {
+	
+    -fx-background-color: #ffb5d6;
+    -fx-text-fill: black;
+    
+}
+
+.list-view .list-cell:filled:selected:odd {
+	
+    -fx-background-color: #fcf8cc;
+    -fx-text-fill: black;
+    
+}
+
+.list-view .list-cell:even {
+	
+	-fx-background-color: #ffedf5;
+    -fx-text-fill: black;
+	
+}
+.list-view .list-cell:odd {
+	
+	-fx-background-color: #fffef2;
+    -fx-text-fill: black;
+	
+}
+
+#Button {
+	
+	-fx-background-insets: 4;
+    -fx-border-radius: 5;
     -fx-border-width: 5;
     -fx-background-color: #FCFBE6;
     -fx-border-color: #653531;

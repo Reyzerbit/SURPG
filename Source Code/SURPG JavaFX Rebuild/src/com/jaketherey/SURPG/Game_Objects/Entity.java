@@ -8,21 +8,20 @@ public class Entity implements Serializable{
 	
 	private static final long serialVersionUID = 1921181675142092025L;
 	
-	int strength;
-	int physStrength;
-	int will;
-	int endurance;
-	int intelligence;
-	int communication;
-	int probSolve;
-	int insight;
-	int agility;
-	int precission;
-	int athletics;
-	int balance;
-	int maxHP;
-	int currentHP;
-	int location;
+	public int strength;
+	public int physStrength;
+	public int will;
+	public int endurance;
+	public int intelligence;
+	public int communication;
+	public int probSolve;
+	public int insight;
+	public int agility;
+	public int precission;
+	public int athletics;
+	public int balance;
+	public int maxHP;
+	public int currentHP;
 
 	public Entity(int[] stats){
 		
@@ -42,39 +41,124 @@ public class Entity implements Serializable{
 			this.balance = stats[11];
 			this.maxHP = stats[12];
 			this.currentHP = stats[13];
-			this.location = stats[14];
 			
 		}catch(ArrayIndexOutOfBoundsException e) {
-			SURPG_Core.runError();
+			SURPG_Core.runError(e);
 			e.printStackTrace();
 		}
 		
 	}
-	
-	public void setVal(String value, Object setVal) {
 
-		try {
-			this.getClass().getField(value).set(value, setVal);
-		}catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException | SecurityException e) {
-			SURPG_Core.runError();
-			e.printStackTrace();
-		}
-		
+	public int getStrength() {
+		return strength;
 	}
-	
-	public Object getVal(String value){
-		
-		Object returnVal = null;
-		
-		try {
-			returnVal = this.getClass().getField(value);
-		}catch (IllegalArgumentException | NoSuchFieldException | SecurityException e) {
-			SURPG_Core.runError();
-			e.printStackTrace();
-		}
-		
-		return returnVal;
-		
+
+	public void setStrength(int strength) {
+		this.strength = strength;
+	}
+
+	public int getPhysStrength() {
+		return physStrength;
+	}
+
+	public void setPhysStrength(int physStrength) {
+		this.physStrength = physStrength;
+	}
+
+	public int getWill() {
+		return will;
+	}
+
+	public void setWill(int will) {
+		this.will = will;
+	}
+
+	public int getEndurance() {
+		return endurance;
+	}
+
+	public void setEndurance(int endurance) {
+		this.endurance = endurance;
+	}
+
+	public int getIntelligence() {
+		return intelligence;
+	}
+
+	public void setIntelligence(int intelligence) {
+		this.intelligence = intelligence;
+	}
+
+	public int getCommunication() {
+		return communication;
+	}
+
+	public void setCommunication(int communication) {
+		this.communication = communication;
+	}
+
+	public int getProbSolve() {
+		return probSolve;
+	}
+
+	public void setProbSolve(int probSolve) {
+		this.probSolve = probSolve;
+	}
+
+	public int getInsight() {
+		return insight;
+	}
+
+	public void setInsight(int insight) {
+		this.insight = insight;
+	}
+
+	public int getAgility() {
+		return agility;
+	}
+
+	public void setAgility(int agility) {
+		this.agility = agility;
+	}
+
+	public int getPrecission() {
+		return precission;
+	}
+
+	public void setPrecission(int precission) {
+		this.precission = precission;
+	}
+
+	public int getAthletics() {
+		return athletics;
+	}
+
+	public void setAthletics(int athletics) {
+		this.athletics = athletics;
+	}
+
+	public int getBalance() {
+		return balance;
+	}
+
+	public void setBalance(int balance) {
+		this.balance = balance;
+	}
+
+	public int getMaxHP() {
+		return maxHP;
+	}
+
+	public void setMaxHP(int maxHP) {
+		this.maxHP = maxHP;
+	}
+
+	public int getCurrentHP() {
+		return currentHP;
+	}
+
+	public void setCurrentHP(int currentHP) {
+		this.currentHP = currentHP;
 	}
 	
 }

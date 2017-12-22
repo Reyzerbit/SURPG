@@ -1,17 +1,17 @@
-package com.jaketherey.SURPG.Game_Objects;
+package com.jaketherey.SURPG.Game_Objects.Save_Objects;
 
 import java.io.Serializable;
 
 public class Location_Chunk implements Serializable{
 	
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 19211816738211411L;
 	
 	String start;
 	String attempt;
 	String help;
-	String[] answers;
+	Answer_Packet[] answers;
 	
-	public Location_Chunk(String start, String attempt, String help, String[] answers) {
+	public Location_Chunk(String start, String attempt, String help, Answer_Packet[] answers) {
 		
 		this.start = start;
 		this.attempt = attempt;
@@ -38,7 +38,7 @@ public class Location_Chunk implements Serializable{
 		
 	}
 	
-	public String[] getAnswers() {
+	public Answer_Packet[] getAnswers() {
 		
 		return answers;
 		

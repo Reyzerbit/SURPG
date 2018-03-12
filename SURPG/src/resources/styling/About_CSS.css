@@ -1,0 +1,31 @@
+/*
+ * SURPG (c) Jacob Batista 2017
+ * All Steven Universe related characters, sounds, and images are copyright Cartoon Network and Rebecca Sugar
+ */
+
+.root {
+	
+    -fx-font-family: "Crewniverse";
+    -fx-font-size: 9;
+    -fx-background-color: transparent;
+    
+}
+
+#Background {
+	
+	-fx-background-image: url("../images/AboutBackground.png");
+    -fx-background-repeat: stretch;   
+    -fx-background-size: auto;
+    -fx-background-position: center center;
+	
+}
+
+#Exit {
+	
+    -fx-border-radius: 5;
+    -fx-border-width: 3;
+    -fx-background-image: url("../images/25x25Button.png");
+    -fx-border-color: #653531;
+    -fx-background-radius: 5;
+    
+}

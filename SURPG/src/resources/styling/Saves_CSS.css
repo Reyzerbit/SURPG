@@ -1,0 +1,101 @@
+/*
+ * SURPG (c) Jacob Batista 2017
+ * All Steven Universe related characters, sounds, and images are copyright Cartoon Network and Rebecca Sugar
+ */
+
+.root {
+	
+    -fx-font-family: "Crewniverse";
+    -fx-font-size: 10;
+    
+}
+
+#MainBackground {
+	
+	-fx-background-color: #FCC8DF;
+    -fx-border-radius: 5;
+	
+}
+
+#TransparentBackground {
+	
+	-fx-background-color: #00000000;
+	
+	
+}
+
+.list-view {
+	
+	-fx-faint-focus-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-border-radius: 0;
+    -fx-border-color: #653531;
+    -fx-border-width: 5;
+	-fx-background-image: url("../images/NoSaves.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+	
+}
+
+.list-view .list-cell:filled:selected:even {
+	
+    -fx-background-color: #ffb5d6;
+    -fx-text-fill: black;
+    
+}
+
+.list-view .list-cell:filled:selected:odd {
+	
+    -fx-background-color: #fcf8cc;
+    -fx-text-fill: black;
+    
+}
+
+.list-view .list-cell:even {
+	
+	-fx-background-color: #ffedf5;
+    -fx-text-fill: black;
+	
+}
+.list-view .list-cell:odd {
+	
+	-fx-background-color: #fffef2;
+    -fx-text-fill: black;
+	
+}
+
+.button {
+	
+	-fx-background-insets: 2;
+    -fx-border-radius: 0;
+    -fx-border-width: 3;
+    -fx-background-color: #FCFBE6;
+    -fx-border-color: #653531;
+    -fx-background-radius: 0;
+    
+}
+
+.label {
+	
+	-fx-border-radius: 0;
+	-fx-border-width: 3;
+	-fx-border-color: #653531;
+	-fx-background-color: #FCFBE6;
+	
+}
+
+.text-area {
+	
+	-fx-border-radius: 0;
+	-fx-border-width: 5;
+	-fx-border-color: #653531;
+	
+}
+
+.text-field {
+	
+	-fx-border-radius: 0;
+	-fx-border-width: 5;
+	-fx-border-color: #653531;
+	
+}

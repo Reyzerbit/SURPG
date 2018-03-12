@@ -1,6 +1,6 @@
 # SURPG: Steven Universe Role-Playing Game
 This is my text based role playing game, based around the "Steven Universe" TV show.  
-I started working on this in colaboration with my sister Lauryn who is head digital designer and main story boarer.
+I started working on this in colaboration with my sister Lauryn who is head digital designer and main story boarder.
 
 We would love it if you would share this with your friends and help us out by promoting this game!
 

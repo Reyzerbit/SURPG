@@ -1,0 +1,152 @@
+/*
+ * SURPG (c) Jacob Batista 2017
+ * All Steven Universe related characters, sounds, and images are copyright Cartoon Network and Rebecca Sugar
+ */
+
+.root {
+	
+    -fx-font-family: "Crewniverse";
+    -fx-font-size: 10;
+    
+}
+
+#MainBackground {
+	
+	-fx-background-color: transparent;
+	-fx-background-image: url("../images/CombatBackground.png");
+    -fx-background-repeat: stretch;   
+    -fx-background-size: auto;
+    -fx-background-position: center center;
+	-fx-spacing: 40;
+	-fx-alignment: top-center;
+	
+}
+
+#TransparentBackground {
+	
+	-fx-background-color: trasparent;
+	
+}
+
+#GridPanes {
+	
+	-fx-hgap: 20;
+	-fx-vgap: 20;
+	-fx-alignment: center;
+	
+}
+
+#CombatPane {
+	
+	-fx-background-radius: 6;
+    -fx-border-radius: 5;
+    -fx-border-width: 3;
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #653531;
+	-fx-min-width: 300;
+	-fx-min-height: 200;
+	-fx-max-width: 300;
+	-fx-max-height: 200;
+    
+}
+
+#Layout {
+	
+	-fx-spacing: 40;
+	-fx-alignment: top-center;
+	-fx-background-color: transparent;
+	-fx-min-width: 300;
+	-fx-min-height: 350;
+	-fx-max-width: 300;
+	-fx-max-height: 350;
+	
+}
+
+#Button {
+	
+	-fx-background-insets: 4;
+    -fx-border-radius: 5;
+    -fx-border-width: 5;
+    -fx-background-color: #FCFBE6;
+    -fx-border-color: #653531;
+    -fx-min-width: 140;
+    -fx-min-height: 40;
+    -fx-max-width: 140;
+    -fx-max-height: 40;
+    
+}
+
+.label {
+	
+	-fx-background-insets: 4;
+    -fx-border-radius: 5;
+    -fx-border-width: 3;
+    -fx-background-color: #FCFBE6;
+    -fx-border-color: #653531;
+    -fx-min-width: 100;
+    -fx-min-height: 40;
+    -fx-max-width: 100;
+    -fx-max-height: 40;
+    -fx-text-alignment: center; 
+	
+}
+
+.tab-pane {
+	
+	-fx-min-width: 300;
+	-fx-min-height: 350;
+	-fx-max-width: 300;
+	-fx-max-height: 350;
+    -fx-background-color: transparent;
+    -fx-tab-min-width: 80;
+    -fx-tab-min-height: 40;
+	
+}
+
+.tab-pane .tab-content-area{
+	
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-border-radius: 5;
+    -fx-border-width: 3;
+    -fx-border-color: #653531;
+	
+}
+
+.tab-pane .tab-header-area{
+
+    -fx-alignment: center;
+	
+}
+
+.tab-pane .tab-header-background{
+
+    -fx-background-color: transparent;
+	
+}
+
+.tab-pane .tab {
+
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-focus-color: transparent;
+	-fx-faint-focus-color: transparent;
+	-fx-background-image: url("../images/ItemsTab.png");
+    -fx-background-repeat: stretch;   
+    -fx-background-size: stretch;
+    -fx-background-position: center center;
+	
+}
+
+.tab-pane .tab:selected{
+
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-focus-color: transparent;
+	-fx-faint-focus-color: transparent;
+	-fx-background-image: url("../images/ItemsTabSelected.png");
+    -fx-background-repeat: stretch;   
+    -fx-background-size: stretch;
+    -fx-background-position: center center;
+	
+}

@@ -7,8 +7,8 @@ package com.jaketherey.SURPG;
 
 import java.util.logging.Level;
 
-import com.jaketherey.SURPG.GUI.GUI_Main;
-import com.jaketherey.SURPG.GUI.Extra_GUI.Opener_Icon;
+import com.jaketherey.SURPG.GUI.Opener_Icon;
+import com.jaketherey.SURPG.GUI.Main.GUI_Main;
 import com.jaketherey.SURPG.IO.Commands;
 import com.jaketherey.SURPG.IO.SURPGLogger;
 
@@ -16,6 +16,12 @@ import javafx.application.Application;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+/**
+ * The launcher of the game, extends {@link javafx.application.Application}.
+ * @author Jacob Batista
+ * @since 1.0
+ * @see javafx.application.Application
+ */
 public class Launcher extends Application{
 	
 	public static void main(String[] args) {
@@ -30,6 +36,7 @@ public class Launcher extends Application{
 	 * inherited from javafx.application.Application.
 	 * @param args The arguments passed to the "launch" method
 	 * from the main method.
+	 * @since 1.0
 	 */
 	public static void launchGame(String[] args) {
 		SURPGLogger.logger.log(Level.INFO, "Launching game.");
@@ -38,6 +45,7 @@ public class Launcher extends Application{
 
 	/**
 	 * Initiates the font for the game GUI.
+	 * @since 1.0
 	 */
 	private static void initFont() {
 		SURPGLogger.logger.log(Level.INFO, "Loading font...");
@@ -48,9 +56,7 @@ public class Launcher extends Application{
 	/**
 	 * Inherited from JavaFX, called on application startup.
 	 * Runs the opener icon.
-	 */
-	/*
-	 * (non-Javadoc)
+	 * @since 1.0
 	 * @see javafx.application.Application#start(javafx.stage.Stage)
 	 */
 	@Override
@@ -61,9 +67,7 @@ public class Launcher extends Application{
 	/**
 	 * Inherited from JavaFX, called on application startup.
 	 * Called on application closure.
-	 */
-	/*
-	 * (non-Javadoc)
+	 * @since 1.0
 	 * @see javafx.application.Application#stop()
 	 */
 	@Override

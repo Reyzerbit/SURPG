@@ -7,8 +7,8 @@ package com.jaketherey.SURPG.Items;
 
 import java.io.Serializable;
 
-import com.jaketherey.SURPG.Core;
 import com.jaketherey.SURPG.Entities.Entity;
+import com.jaketherey.SURPG.GUI.Main.GUI_Utils;
 
 import javafx.collections.ObservableList;
 
@@ -50,8 +50,8 @@ public class BoosterItem extends UseableItem implements Serializable {
 				break;
 			}	
 		}
-		Core.MAIN_GUI.reloadLabels();
-		Core.MAIN_GUI.clearItemsSelect();
+		GUI_Utils.reloadLabels();
+		GUI_Utils.clearItemsSelect();
 		containerList.remove(this);
 	}
 

@@ -6,6 +6,7 @@ import java.io.ObjectInputStream;
 import java.util.logging.Level;
 
 import com.jaketherey.SURPG.Core;
+import com.jaketherey.SURPG.GUI.Main.GUI_Utils;
 import com.jaketherey.SURPG.SaveObjects.Answer_Packet;
 import com.jaketherey.SURPG.SaveObjects.Answer_Runs;
 import com.jaketherey.SURPG.SaveObjects.Location_Chunk;
@@ -44,18 +45,18 @@ public class Storyline {
 		
 		SURPGLogger.logger.log(Level.INFO, "Running response: " + response);
 		
-		Core.MAIN_GUI.clearInput();
+		GUI_Utils.clearInput();
 		
 		if(repeat == false) {
 			
-			Core.MAIN_GUI.append(data.getStart());
+			GUI_Utils.append(data.getStart());
 			repeat = true;
 			
 		}else if((response.equalsIgnoreCase("help") || 
 				response.equalsIgnoreCase("hint") || 
 				response.equalsIgnoreCase("help me") && repeat == true)) {
 			
-			Core.MAIN_GUI.append(data.getHelp());
+			GUI_Utils.append(data.getHelp());
 			
 		}else {
 			
@@ -69,7 +70,7 @@ public class Storyline {
 					Core.CURRENT_PLAYER.setLocation(temp[i].getDestination());
 					runMethod(temp[i].getPossibleRuns());
 					data = chunkArray[Core.CURRENT_PLAYER.getLocation()];
-					Core.MAIN_GUI.append(data.getStart());
+					GUI_Utils.append(data.getStart());
 					
 					runAttempt = false;
 					
@@ -79,7 +80,7 @@ public class Storyline {
 			
 			if(runAttempt) {
 				
-				Core.MAIN_GUI.append(data.getAttempt());
+				GUI_Utils.append(data.getAttempt());
 				
 			}
 			
@@ -118,7 +119,7 @@ public class Storyline {
 			
 		}
 		
-		Core.MAIN_GUI.reloadLabels();
+		GUI_Utils.reloadLabels();
 		
 	}
 

@@ -1,4 +1,4 @@
-package com.jaketherey.SURPG.GUI.Extra_GUI;
+package com.jaketherey.SURPG.GUI.Main.SubSections.Center.InfoSection;
 
 import java.util.logging.Level;
 
@@ -7,12 +7,12 @@ import com.jaketherey.SURPG.IO.SURPGLogger;
 
 import javafx.scene.control.ProgressBar;
 
-public class Health_Bar extends ProgressBar{
+public class HealthBar extends ProgressBar{
 
 	private static final String[] colorStyles = {"green-bar", "yellow-bar", "red-bar"};
 	double percentage;
 	
-	public Health_Bar(Player player) {
+	public HealthBar(Player player) {
 		
 		percentage = ((double)player.getCurrentHP()/(double)player.getMaxHP());
 		

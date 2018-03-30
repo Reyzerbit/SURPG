@@ -9,10 +9,15 @@ import java.io.File;
 import java.io.IOException;
 
 import com.jaketherey.SURPG.Entities.Player;
-import com.jaketherey.SURPG.GUI.GUI_Main;
-import com.jaketherey.SURPG.GUI.Extra_GUI.Menu_Control;
+import com.jaketherey.SURPG.GUI.Main.GUI_Main;
+import com.jaketherey.SURPG.GUI.Main.Menu_Control;
 import com.jaketherey.SURPG.IO.Storyline;
 
+/**
+ * The core for the entire game. Holds globally accessed objects and static methods.
+ * @author Jacob Batista
+ * @since 1.0
+ */
 public class Core {
 	
 	//FILE LOCATIONS
@@ -25,15 +30,31 @@ public class Core {
 	public static final File LATEST_LOG_FILE = new File(LOG_FILES_DIRECTORY + System.getProperty("file.separator") + "LATEST_LOG.log");
 	public static File CURRENT_SAVES_FILE;
 	
-	public static Player CURRENT_PLAYER;		//Current player (from selected save or generated new one).
-	public static Player[] LOADED_SAVES;		//Array of players, retrieved from save file. Used to list saves to select.
-	public static GUI_Main MAIN_GUI;			//Main GUI, used as center area for the program to find the main GUI.
-	
+	/**
+	 * Current running player from selected save or generated new one.
+	 * @since 1.0
+	 */
+	public static Player CURRENT_PLAYER;
+	/**
+	 * Array of players, retrieved from save file. Used to list saves to select.
+	 * @since 1.0
+	 */
+	public static Player[] LOADED_SAVES;
+	/**
+	 * Main GUI, used as center area for the program to find the main GUI.
+	 * @since 1.0
+	 */
+	public static GUI_Main MAIN_GUI;
+	/**
+	 * Set upon startup, lets the game know if it is in developer mode or not.
+	 * @since 1.0
+	 */
 	public static boolean DEVELOPER_MODE = false;
 	
 	/**
 	 * genBlankSaves() creates a new blank file, which is meant to be the main save location for the game.
 	 * @throws IOException
+	 * @since 1.0
 	 */
 	public static void genBlankSaves() throws IOException {
 		MAIN_SAVES_FILE.getParentFile().mkdirs();
@@ -44,6 +65,7 @@ public class Core {
 	 * genNewPlayer() creates a new (starting stats) player with the name given through the parameter.
 	 * @param saveName The name used to identify the save state.
 	 * @return Returns a new player.
+	 * @since 1.0
 	 */
 	public static Player genNewPlayer(String saveName) {
 		final int[] newArray = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 0};
@@ -53,6 +75,7 @@ public class Core {
 	/**
 	 * Checks if the user's OS is Mac or not.
 	 * @return True or false, depending on the OS.
+	 * @since 1.0
 	 */
 	public static boolean isMac() {
 		String OS = System.getProperty("os.name").toLowerCase();
@@ -61,6 +84,7 @@ public class Core {
 	
 	/**
 	 * init() Initializes main game elements.
+	 * @since 1.0
 	 */
 	public static void init() {
 		initGUI();
@@ -69,6 +93,7 @@ public class Core {
 
 	/**
 	 * Initializes the storyline reading system.
+	 * @since 1.0
 	 */
 	public static void initStoryline() {
 		Storyline.initReader();
@@ -77,6 +102,7 @@ public class Core {
 
 	/**
 	 * Initializes the main game GUI.
+	 * @since 1.0
 	 */
 	public static void initGUI() {
 		MAIN_GUI = new GUI_Main();

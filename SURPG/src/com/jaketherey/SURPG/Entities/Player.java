@@ -1,3 +1,8 @@
+/*
+ * SURPG (c) Jacob Batista 2017
+ * All Steven Universe related characters, sounds, and images are copyright Cartoon Network and Rebecca Sugar
+ */
+
 package com.jaketherey.SURPG.Entities;
 
 import java.io.Serializable;
@@ -5,6 +10,14 @@ import java.util.ArrayList;
 
 import com.jaketherey.SURPG.Items.UseableItem;
 
+/**
+ * The player object, which extends the {@link com.jaketherey.SURPG.Entities.Entity} class,
+ * while also containing more complex data such as the {@link com.jaketherey.SURPG.Entities.Player#saveName}
+ * and the {@link com.jaketherey.SURPG.Entities.Player#storylineLocation}
+ * @author Jacob Batista
+ * @since 1.0
+ * @see com.jaketherey.SURPG.Entities.Entity
+ */
 public class Player extends Entity implements Serializable{
 	
 	private static final long serialVersionUID = 1921181671612125518L;
@@ -12,7 +25,7 @@ public class Player extends Entity implements Serializable{
 	String saveName;
 	String gemType;
 	String gemSpot;
-	int location;
+	int storylineLocation;
 
 	public Player(String saveName, String gemType, String gemSpot, int[] stats){
 		
@@ -21,7 +34,7 @@ public class Player extends Entity implements Serializable{
 		this.saveName = saveName;
 		this.gemType = gemType;
 		this.gemSpot = gemSpot;
-		this.location = stats[14];
+		this.storylineLocation = stats[14];
 		heldItems = new ArrayList<UseableItem>();
 		
 	}
@@ -51,11 +64,11 @@ public class Player extends Entity implements Serializable{
 	}
 
 	public int getLocation() {
-		return location;
+		return storylineLocation;
 	}
 
 	public void setLocation(int location) {
-		this.location = location;
+		this.storylineLocation = location;
 	}
 	
 }

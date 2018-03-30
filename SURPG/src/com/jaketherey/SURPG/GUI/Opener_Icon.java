@@ -1,4 +1,4 @@
-package com.jaketherey.SURPG.GUI.Extra_GUI;
+package com.jaketherey.SURPG.GUI;
 
 import com.jaketherey.SURPG.IO.SURPGLogger;
 import com.jaketherey.SURPG.IO.Saves_Handler;

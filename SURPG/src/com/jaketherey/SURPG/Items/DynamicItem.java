@@ -21,7 +21,6 @@ public interface DynamicItem {
 	default public void onSelect(Item item, Pane pane, Entity user, ObservableList<UseableItem> itemsList) {
 		pane.getChildren().remove(0);
 		VBox layout = new VBox();
-		use.setText("Use " + item.getItemName());
 		TextArea description = new TextArea(item.getDescription());
 		pane.getChildren().add(layout);
 		layout.prefWidthProperty().bind(pane.widthProperty());

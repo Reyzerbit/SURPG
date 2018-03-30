@@ -1,4 +1,4 @@
-package com.jaketherey.SURPG.GUI.Extra_GUI;
+package com.jaketherey.SURPG.GUI.Main;
 
 import java.util.logging.Level;
 

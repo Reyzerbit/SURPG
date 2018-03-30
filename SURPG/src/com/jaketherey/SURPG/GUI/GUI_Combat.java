@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 import com.jaketherey.SURPG.Core;
-import com.jaketherey.SURPG.GUI.Extra_GUI.Opener_Icon;
+import com.jaketherey.SURPG.GUI.Main.GUI_Utils;
 import com.jaketherey.SURPG.IO.SURPGLogger;
 import com.jaketherey.SURPG.Misc.Combat_Runnable;
 
@@ -116,7 +116,7 @@ public class GUI_Combat{
 	    this.enemyHealth = enemyHealth;
 	    
 	    //Reload Labels
-	    Core.MAIN_GUI.reloadLabels();
+	    GUI_Utils.reloadLabels();
 		
 	    //Combat Slider Thread
 		threadMove = new Thread(new Combat_Runnable(combatSlider, speedNumber));

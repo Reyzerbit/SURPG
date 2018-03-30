@@ -10,6 +10,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import com.jaketherey.SURPG.Core;
+import com.jaketherey.SURPG.GUI.Main.GUI_Utils;
 import com.jaketherey.SURPG.IO.SURPGLogger;
 import com.jaketherey.SURPG.Items.BoostValue;
 import com.jaketherey.SURPG.Items.EquipableItem;
@@ -176,7 +177,7 @@ public class GUI_Console {
 			
 		}
 		
-		Core.MAIN_GUI.reloadLabels();
+		GUI_Utils.reloadLabels();
 		
 	}
 	

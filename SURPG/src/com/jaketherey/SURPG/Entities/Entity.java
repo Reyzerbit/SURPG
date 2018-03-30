@@ -1,3 +1,8 @@
+/*
+ * SURPG (c) Jacob Batista 2017
+ * All Steven Universe related characters, sounds, and images are copyright Cartoon Network and Rebecca Sugar
+ */
+
 package com.jaketherey.SURPG.Entities;
 
 import java.io.Serializable;
@@ -5,13 +10,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 
-import com.jaketherey.SURPG.Core;
+import com.jaketherey.SURPG.GUI.Main.GUI_Utils;
 import com.jaketherey.SURPG.IO.SURPGLogger;
 import com.jaketherey.SURPG.Items.BoostValue;
 import com.jaketherey.SURPG.Items.EquipableItem;
 import com.jaketherey.SURPG.Items.Item;
 import com.jaketherey.SURPG.Items.UseableItem;
 
+/**
+ * The entity object, a basic collection of data values that are
+ * referenced to determine the Entity's ability to do things in the game world.
+ * @author Jacob Batista
+ * @since 1.0
+ * @see com.jaketherey.SURPG.Entities.Player
+ */
 public class Entity implements Serializable{
 	
 	private static final long serialVersionUID = 1921181675142092025L;
@@ -34,7 +46,7 @@ public class Entity implements Serializable{
 
 	List<UseableItem> heldItems;
 	List<EquipableItem> equipedItems;
-
+	
 	public Entity(int[] stats){
 		
 		try {
@@ -167,12 +179,23 @@ public class Entity implements Serializable{
 		this.currentHP = currentHP;
 	}
 	
+	/**
+	 * Refreshes all the primary stat values (strength, intelligence, and agility)
+	 * based on the sum of their parts.
+	 * @since 1.0
+	 */
 	public void refreshStats() {
 		strength = physStrength + will + endurance;
 		intelligence = communication + probSolve + insight;
 		agility = precision + athletics + balance;
 	}
 	
+	/**
+	 * Equips an {@link com.jaketherey.SURPG.Items.EquipableItem} to the entity.
+	 * @param item {@link com.jaketherey.SURPG.Items.EquipableItem} item to be equipped
+	 * @since 1.0
+	 * @see #unequipItem(EquipableItem)
+	 */
 	public void equipItem(EquipableItem item) {
 		equipedItems.add(item);
 		BoostValue[] tempBoostVal = item.getBoostValues();
@@ -202,9 +225,15 @@ public class Entity implements Serializable{
 				break;
 			}	
 		}
-		Core.MAIN_GUI.reloadLabels();
+		GUI_Utils.reloadLabels();
 	}
 	
+	/**
+	 * Unequips an item from the entity.
+	 * @param item Item to unequip.
+	 * @since 1.0
+	 * @see #equipItem(EquipableItem)
+	 */
 	public void unequipItem(EquipableItem item) {
 		equipedItems.remove(item);
 		BoostValue[] tempBoostVal = item.getBoostValues();
@@ -234,7 +263,7 @@ public class Entity implements Serializable{
 				break;
 			}	
 		}
-		Core.MAIN_GUI.reloadLabels();
+		GUI_Utils.reloadLabels();
 	}
 	
 	public List<EquipableItem> getEquipedItems(){

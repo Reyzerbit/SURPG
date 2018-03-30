@@ -123,7 +123,7 @@ public class Saves_Handler {
 		FileChooser selectFile = new FileChooser();
 		selectFile.setTitle("Choose New Save");
 		selectFile.getExtensionFilters().add(new ExtensionFilter("SURPG Save Files (.surpg)", "*.surpg"));
-		Core.CURRENT_SAVES_FILE = selectFile.showSaveDialog(Core.MAIN_GUI.getStage());
+		Core.CURRENT_SAVES_FILE = selectFile.showSaveDialog(Core.MAIN_GUI);
 		saveData();
 		
 	}
@@ -133,7 +133,7 @@ public class Saves_Handler {
 		FileChooser selectFile = new FileChooser();
 		selectFile.setTitle("Choose Save to Load");
 		selectFile.getExtensionFilters().add(new ExtensionFilter("SURPG Save Files (.surpg)", "*.surpg"));
-		Core.CURRENT_SAVES_FILE = selectFile.showOpenDialog(Core.MAIN_GUI.getStage());
+		Core.CURRENT_SAVES_FILE = selectFile.showOpenDialog(Core.MAIN_GUI);
 		loadSaveData();
 		
 	}
